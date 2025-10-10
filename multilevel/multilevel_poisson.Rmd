@@ -42,7 +42,9 @@ str(d)
 # crime type 1=violent, 2=weapons, 3=property, 4=drug
 ```
 
-## 2. Summary Statistics
+---
+
+## Summary Statistics
 
 We’ll group by ethnicity to see how many stops, how many arrests, and what fraction of population each group represents across all precincts/crime categories.
 
@@ -68,7 +70,91 @@ d_summaries <- d %>%
 d_summaries
 ```
 
-## 3. Model Definition
+---
+
+## GLM for count data
+
+The type of data (frequency of police stops) is referred to as "count" data, and it is unsuitable for analysis with a linear regression approach (for example because it is discrete, composed of integers only, and usually has a large positive skew and a systematice relation betweeen mean and variance that violates homoscedasticity assumption). There are specific GLM models designed for this type  of data, and one example is the Poisson GLM.
+
+A Poisson model is usually formulated as follow: let $y=(y_1, \dots, y_n)$ be the dependent variable, consisting of counts (non-negative integers) and $x$ the independent variable (predictor). Then
+
+$$
+y_i \sim \text{Poisson} \left(\lambda_i \right)
+$$
+where^[This is the most common formulation, and is sometime referred to as log 'link' function, to indicate the fact that we have a function (the logarithm function) that 'link' the linear part of the model (the linear combination of the independent variables, here $\beta_0 + \beta_1 x_i$) with the parameter of the distribution of the dependent variable (here the Poisson rate parameter $\lambda$). This is a common component to all generalized linear models, for example for the logistic regression we have a 'logit' link function - the quantile function of the standard logistic distribution - that link the linear predictor part with the parameter $p$ of the binomial distribution.]
+$$
+\log( \lambda_i) = \beta_0 + \beta_1 x_i
+$$
+or alternatively 
+$$
+\lambda_i = e^{\beta_0 + \beta_1 x_i}
+$$
+The log link is central to Poisson regression. It ensures that predictions for $\lambda_i$ stay strictly positive and also encodes the assumption that changes in $x$ have a multiplicative effect on the rate $\lambda_i$. In practice, that means a one-unit increase in $x$ multiplies the rate by $e^{\beta_1}$ 
+
+The above also show how we can use the exponential function (in R the function `exp()`) to calculate the predicted values of the mean (more precisely, the expected value, $\mathbb{E}(y)$) and variance ($Var(y)$) of the dependent variable from the model's beta coefficients. This relies on the property of the Poisson distribution^[The symbol $\implies$ is used to denote logical implication, e.g. $(A=B)\implies (B=A)$ - symmetry of logical equivalence.]
+$$
+y_i \sim \text{Poisson} \left(\lambda \right) \implies \mathbb{E}(y)=Var(y)=\lambda
+$$
+
+In a Poisson GLM, the model automatically ties the variance to the mean, so if $\lambda_i$ is large, the variance is also large. This is usually an improvement over ordinary least squares (which assumes constant variance), but in real applications we often observe even more variability than a Poisson would allow—so-called **overdispersion**.
+
+In our police-stops example, we suspect overdispersion because the number of stops varies more widely across precincts and time periods than a basic Poisson might allow. We therefore include a random intercept by precinct and an observation-level random term to handle extra variation. This approach is often called an overdispersed Poisson or “Poisson-lognormal” model, depending on the exact formulation.
+
+### How does over-dispersion look like?
+
+The type of data expected under a Poisson model is illustrated in the figure below, which shows 100 datapoints simulated from the model $y_i \sim \text{Poisson} \left(e^{1 + 2x_i }\right)$. The vertical deviations of the datapoints from the line are consistent with the property of the Poisson distribution that the variance of hte count has the same value as their expected value, formally, $Var(y) = \mathbb{E}(y)$).
+
+```{r, fig.width=4, fig.height=4.2, fig.align='center'}
+set.seed(2)
+n <- 100
+x <- runif(n, -1.5, 1.5)
+a <- 1
+b <- 2
+linpred <- a + b*x # linear predictor part
+y <- rpois(n, exp(linpred)) # simulate Poisson observations
+
+plot(x,y,col="blue") # plot
+x_ <- seq(-2,2,0.1)
+lines(x_, exp(a+b*x_))
+segments(x,exp(a+b*x),x,y, lwd=1,lty=3, col="red")
+
+
+```
+
+We can adjust the code above to simulate the same data with some degree of over-dispersion, by adding additional normally distributed noise ($\epsilon_i \sim \mathcal{N}(0, \sigma_{\epsilon})$) at the observation level: $y_i \sim \text{Poisson} \left(e^{1 + 2x_i +\epsilon_i }\right)$ Varying the variability of this additional noise ($\sigma_{\epsilon}$) regulates the degree of overdispersion. Importantly, these datapoints are simulated assuming the same function for the average (expected) number of counts (same also as the previous figure), they just differ in the amount of overdispersion relative to a Poisson model. 
+
+
+```{r, fig.width=6, fig.height=3.5, fig.align='center', echo=FALSE}
+set.seed(2)
+n <- 100
+x <- runif(n, -1.5, 1.5)
+a <- 1
+b <- 2
+linpred <- a + b*x # linear predictor part
+
+y0 <- rpois(n, exp(linpred + rnorm(n, mean=0, sd=0.5))) # simulate negative binomial
+y1 <- rpois(n, exp(linpred + rnorm(n, mean=0, sd=1))) # simulate negative binomial
+
+
+
+par(mfrow=c(1,2))
+x_ <- seq(-2,2,0.1)
+
+plot(x,y0,col="blue", ylim=c(0,125), main=expression(sigma[epsilon]==0.5),ylab="y") # plot
+lines(x_, exp(a+b*x_))
+segments(x,exp(a+b*x),x,y0, lwd=1,lty=3, col="red")
+
+
+plot(x,y1,col="blue", ylim=c(0,125), main=expression(sigma[epsilon]==1),ylab="y") # plot
+lines(x_, exp(a+b*x_))
+segments(x,exp(a+b*x),x,y1, lwd=1,lty=3, col="red")
+
+```
+
+---
+
+
+## Model Definition
 
 We define the overdispersed Poisson model:
 
@@ -95,7 +181,9 @@ We call \(\beta_p\) *non-centered* if we write:
 
 instead of sampling \(\beta_p\) directly from \(N(0,\sigma_\beta^2)\). This often improves sampling efficiency in hierarchical models. The same logic applies to \(\epsilon_{ep}\).
 
-## 4. Stan Code
+---
+
+## Stan Code
 
 Below is the Stan code (which you can save in a file named `overdispersed_poisson.stan`):
 
@@ -151,7 +239,9 @@ model {
 }
 ```
 
-## 5. Prior Predictive Check
+---
+
+## Prior Predictive Check
 
 Before fitting the model, it’s good practice to simulate data under the prior to see if the implied distribution is reasonable. For brevity, here’s a minimal example:
 
@@ -178,7 +268,9 @@ cat("Simulated alpha =", alpha_sim, "\n")
 
 We could draw some random `past_arrests` values (e.g., 1–50) and see how big the Poisson means might get. If these are unreasonably large or small, we might tighten the priors.
 
-## 6. Fit the Model
+---
+
+## Fit the Model
 
 **Important**: If `past.arrests == 0` for some rows but `stops` are nonzero, we need to avoid a zero Poisson mean. One quick fix is to add a small constant (e.g. 0.5) to `past.arrests`.
 
@@ -228,7 +320,7 @@ print(fit, pars = c("alpha", "sigma_beta", "sigma_eps"))
 
 Here, `alpha` are the ethnic-group log-effects, `sigma_beta` is the precinct-level standard deviation, and `sigma_eps` is the overdispersion. You can also examine random intercepts `beta` or the `eps` in detail.
 
-## 7. Diagnostic Checks
+## Diagnostic Checks
 
 ```{r diagnostics}
 # Traceplots
@@ -240,7 +332,9 @@ pairs(fit, pars = c("alpha[1]", "alpha[2]", "alpha[3]", "sigma_beta", "sigma_eps
 
 Check for good mixing (no major issues in traceplots) and no suspicious funnel shapes in pairs plots.
 
-## 8. Posterior Analysis
+---
+
+## Posterior Analysis
 
 We use **tidybayes** to extract samples and summarize. Suppose we want to look at the exponentiated ethnic effects (relative stops vs. arrests).
 
@@ -305,6 +399,7 @@ ggplot(posterior_ratios, aes(x = contrast, y = ratio)) +
   )
 ```
 
+---
 
 ## Prior predictive check
 
