@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Numerical &amp; mathematical skills for neuroscience</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Matteo Lisi" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/htmltools-fill/fill.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom/style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide, center, inverse
+
+# Numerical &amp; mathematical skills for neuroscience
+
+# PS5210 2025-26
+
+## Matteo Lisi
+
+### Part 2: introduction to linear algebra
+
+
+
+
+---
+class: inverse
+
+## Vocabulary
+
+- vector
+- matrix
+- linear combination
+- linear (in)dependence
+- basis
+- span
+- transformation
+- eigenvalues &amp; eigenvectors
+
+
+---
+### Vectors
+
+- A list of `\(n\)` numbers representing a point, or an "arrow", in `\(n\)`-dimensional space
+--
+
+- The vector `\(\overrightarrow{x} = \begin{bmatrix}  x_1 \\ x_2 \end{bmatrix} \in \mathbb{R}^2\)` represents a point/arrow in a 2-dimensional space
+
+
+&lt;!-- .center[![:scale 50%](./drawings/transp_vector_01.png)] --&gt;
+
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-1-1.svg" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+---
+### Vectors
+
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_vector3D.png)] --&gt;
+
+.left-column[
+
+A 3-dimensional vector:
+
+&lt;br&gt;&lt;br&gt;
+
+`$$\vec{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$$`
+&lt;br&gt;&lt;br&gt;
+
+`$$\vec{x} \in \mathbb{R}^3$$`
+
+]
+
+.right-column[
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d50f2255a730340c36c6" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-d50f2255a730340c36c6">{"x":{"visdat":{"94ad4fe477d0":["function () ","plotlyVisDat"]},"cur_data":"94ad4fe477d0","attrs":{"94ad4fe477d0":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"lines","x":[0,3],"y":[0,3],"z":[0,4],"line":{"color":"blue","width":8},"showlegend":false,"hoverinfo":"none","inherit":true},"94ad4fe477d0.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"cone","x":3,"y":3,"z":4,"u":0.29999999999999999,"v":0.29999999999999999,"w":0.40000000000000002,"colorscale":[["0","blue"],["1","blue"]],"showscale":false,"hoverinfo":"none","inherit":true},"94ad4fe477d0.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"lines","x":[3,3],"y":[3,3],"z":[0,4],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":"none","inherit":true},"94ad4fe477d0.3":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"lines","x":[0,3],"y":[0,3],"z":[0,0],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":"none","inherit":true},"94ad4fe477d0.4":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"lines","x":[0,3],"y":[0,3],"z":[4,4],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":"none","inherit":true},"94ad4fe477d0.5":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"lines","x":[3,3],"y":[0,3],"z":[0,0],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":"none","inherit":true},"94ad4fe477d0.6":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"lines","x":[0,3],"y":[3,3],"z":[0,0],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":"none","inherit":true}},"layout":{"width":500,"height":500,"margin":{"b":0,"l":0,"t":0,"r":0},"scene":{"xaxis":{"title":"x₁","range":[0,5],"showgrid":false,"zeroline":true},"yaxis":{"title":"x₂","range":[0,5],"showgrid":false,"zeroline":true},"zaxis":{"title":"x₃","range":[0,5],"showgrid":false,"zeroline":true},"camera":{"eye":{"x":1.5,"y":-1.5,"z":1.2}},"aspectmode":"cube"},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","xaxis":{"title":[]},"yaxis":{"title":[]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"type":"scatter3d","mode":"lines","x":[0,3],"y":[0,3],"z":[0,4],"line":{"color":"blue","width":8},"showlegend":false,"hoverinfo":["none","none"],"marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"frame":null},{"colorbar":{"title":"","ticklen":2},"colorscale":[["0","blue"],["1","blue"]],"showscale":false,"type":"cone","x":[3],"y":[3],"z":[4],"u":[0.29999999999999999],"v":[0.29999999999999999],"w":[0.40000000000000002],"hoverinfo":"none","frame":null},{"type":"scatter3d","mode":"lines","x":[3,3],"y":[3,3],"z":[0,4],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":["none","none"],"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"frame":null},{"type":"scatter3d","mode":"lines","x":[0,3],"y":[0,3],"z":[0,0],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":["none","none"],"marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"frame":null},{"type":"scatter3d","mode":"lines","x":[0,3],"y":[0,3],"z":[4,4],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":["none","none"],"marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"error_y":{"color":"rgba(148,103,189,1)"},"error_x":{"color":"rgba(148,103,189,1)"},"frame":null},{"type":"scatter3d","mode":"lines","x":[3,3],"y":[0,3],"z":[0,0],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":["none","none"],"marker":{"color":"rgba(140,86,75,1)","line":{"color":"rgba(140,86,75,1)"}},"error_y":{"color":"rgba(140,86,75,1)"},"error_x":{"color":"rgba(140,86,75,1)"},"frame":null},{"type":"scatter3d","mode":"lines","x":[0,3],"y":[3,3],"z":[0,0],"line":{"color":"gray","width":2,"dash":"dash"},"showlegend":false,"hoverinfo":["none","none"],"marker":{"color":"rgba(227,119,194,1)","line":{"color":"rgba(227,119,194,1)"}},"error_y":{"color":"rgba(227,119,194,1)"},"error_x":{"color":"rgba(227,119,194,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+
+]
+
+---
+### Sum of vectors
+
+
+`$$\vec{a} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
+\qquad
+\vec{b} = \begin{bmatrix} 3 \\ 1 \end{bmatrix}
+\qquad
+\overrightarrow{a+b} = \begin{bmatrix} 1+3 \\ 2+1 \end{bmatrix}$$`
+
+
+`$$\overrightarrow{a+b} = \overrightarrow{b+a}$$`
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_vector_sum.png)] --&gt;
+
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-3-1.svg" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+---
+#### Multiplication of a vector with a single number (_scalar_)
+
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_scalar_multi.png)] --&gt;
+
+
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-4-1.svg" width="40%" style="display: block; margin: auto;" /&gt;
+
+`$$\alpha \,\vec{x}
+= \alpha
+\begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_N
+\end{bmatrix}
+=
+\begin{bmatrix}
+\alpha x_1 \\ \alpha x_2 \\ \vdots \\ \alpha x_N
+\end{bmatrix}$$`
+
+---
+#### Elementwise vector multiplication (Hadamard product)
+
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_hadamard.png)] --&gt;
+`$$\vec{x} \circ \vec{y} = \begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix} \circ \begin{bmatrix}
+y_1 \\
+\vdots \\
+y_n
+\end{bmatrix} = \begin{bmatrix}
+x_1y_1 \\
+\vdots \\
+x_ny_n
+\end{bmatrix}$$`
+
+
+--
+
+In Matlab, you can achieve this with `x .* y`
+
+
+---
+### Linear combination of vectors
+
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_linear_combi_1.png)] --&gt;
+
+`$$c\,\vec{\bf{v}} + d\, \vec{\bf{w}} = c \begin{bmatrix} 1 \\ 1 \end{bmatrix} + d \begin{bmatrix} 2 \\ 3 \end{bmatrix} 
+= \begin{bmatrix} c + 2d \\ c + 3d \end{bmatrix}$$`
+
+
+--
+
+.red[_How do you describe the set of **all** possible combinations of] `\(\overrightarrow{v}\)` .red[and] `\(\overrightarrow{w}\)`.red[?_]
+
+--
+
+This is referred to as the **span** of the set of vectors `\(\left\{\overrightarrow{v}, \overrightarrow{w}\right\}\)`. 
+
+In this case the combinations of `\(\overrightarrow{v}\)` and `\(\overrightarrow{w}\)` fill a whole two-dimensional plane.
+
+
+---
+### Matrix-vector multiplication
+
+Multiplying a matrix by a vector is like taking linear combinations of the matrix's columns
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_linear_combi_1.png)] --&gt;
+
+`$$c\vec{v} + d\vec{w} = c \begin{bmatrix} 1 \\ 1 \end{bmatrix} + d \begin{bmatrix} 2 \\ 3 \end{bmatrix} = \begin{bmatrix} c + 2d \\ c + 3d \end{bmatrix}$$`
+
+
+--
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_linear_combi_matrix.png)] --&gt;
+
+`$$\mathbf{A}\vec{x} = \begin{bmatrix}
+1 &amp; 2 \\
+1 &amp; 3
+\end{bmatrix} \begin{bmatrix}
+c \\
+d
+\end{bmatrix} = \begin{bmatrix}
+c + 2d \\
+c + 3d
+\end{bmatrix}$$`
+
+---
+class: inverse
+
+### Linear models
+
+--
+
+The dependent variable `\(y\)` is modeled as a weighted combination of the predictor variables, plus an additive error `\(\epsilon\)` 
+`$$y_i=\beta_0 + \beta_1x_{1i} + \ldots +\beta_nx_{ni} + \epsilon_i \\
+\epsilon \sim \mathcal{N}\left( 0, \sigma^2 \right)$$`
+
+---
+class: inverse
+count: false
+
+### Linear models
+
+
+The dependent variable `\(y\)` is modeled as a weighted combination of the predictor variables, plus an additive error `\(\epsilon\)` 
+`$$\textbf{Y} = \textbf{X}\beta + \epsilon \\
+\epsilon \sim \mathcal{N}\left( 0, \sigma^2 \right)$$`
+
+--
+
+Linear models: matrix notation
+
+`$$\bf{Y} = \bf{X}\beta + \epsilon$$`
+`$$\left( \begin{array}{c} y_1 \\ \vdots \\ y_m \end{array} \right) =
+\left( \begin{array}{cccc} 
+1 &amp; x_{11} &amp; \ldots &amp; x_{1n}\\ 
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\ 
+1 &amp; x_{m1} &amp; \ldots &amp; x_{mn}
+\end{array} \right)
+\left( \begin{array}{c} \beta_0 \\  \beta_1 \\ \vdots \\ \beta_n \end{array} \right) +
+\left( \begin{array}{c} \epsilon_1 \\ \vdots \\ \epsilon_m \end{array} \right)$$`
+
+&lt;!-- Matrix multiplication:  --&gt;
+&lt;!-- $$ --&gt;
+&lt;!-- \left( \begin{array}{cc} a &amp; b \\ c&amp; d \end{array} \right)  --&gt;
+&lt;!-- \left( \begin{array}{c} 1 \\ 2 \end{array} \right) =  --&gt;
+&lt;!-- 1 \left( \begin{array}{c} a \\ c \end{array} \right) +  --&gt;
+&lt;!-- 2 \left( \begin{array}{c} b \\ d \end{array} \right) = --&gt;
+&lt;!-- \left( \begin{array}{c} a + 2b \\ c+ 2d \end{array} \right) --&gt;
+&lt;!-- $$ --&gt;
+
+
+
+---
+### Linear independence
+
+&lt;!-- .center[![:scale 60%](./drawings/transp_linear_combi_inde.png)] --&gt;
+
+`$$\mathbf{A}\vec{x} = \begin{bmatrix}
+1 &amp; 2 \\
+1 &amp; 3
+\end{bmatrix} \begin{bmatrix}
+c \\
+d
+\end{bmatrix} = \begin{bmatrix}
+c + 2d \\
+c + 3d
+\end{bmatrix}$$`
+
+`$$\mathbf{B}\vec{x} = \begin{bmatrix}
+1 &amp; 3 \\
+1 &amp; 3
+\end{bmatrix} \begin{bmatrix}
+c \\
+d
+\end{bmatrix} = \begin{bmatrix}
+c + 3d \\
+c + 3d
+\end{bmatrix}$$`
+
+
+.red[_How does the _span_ of the columns of A differ from the span of the columns of B?_] 
+
+--
+
+A set of vector is said to be _linearly independent_ if no vector in the set that is equal to a linear combination of the others.
+
+---
+### Vector dot product
+
+.center[![:scale 80%](./drawings/transp_dot01.png)]
+
+
+---
+### Vector dot product
+
+.center[![:scale 85%](./drawings/transp_dot02.png)]
+
+
+---
+class:inverse
+### Matrix multiplication
+
+* How do we multiply two matrices?
+--
+
+
+* While there is only one correct way of doing it, we can about it in 2 slightly different ways:
+--
+
+
+  1. as a series of dot products;
+--
+
+  
+  1. as a "combination of combinations" of columns.
+
+
+--
+
+* This is the default operatin for the symbol `*` in Matlab.
+
+
+---
+### Matrix multiplication
+
+.center[![:scale 81%](./drawings/transp_matrix_multi_01.png)]
+
+
+---
+### Matrix multiplication
+
+.center[![:scale 80%](./drawings/transp_matrix_multi_02.png)]
+
+
+---
+### Matrix multiplication
+
+.center[![:scale 70%](./drawings/transp_matrix_rules.png)]
+
+
+---
+class: inverse
+
+### Neural networks
+
+.center[![:scale 90%](./img/network_02.webp)]
+
+
+---
+class: inverse
+count: false
+
+### Neural networks
+
+.pull-left[
+
+.center[![:scale 90%](./img/network_01.png)]
+
+]
+
+.pull-right[
+
+Suppose we have `\(n\)` units `\(\mathbf{X}_{1\times n} = \left(x_1, \ldots, x_n \right)\)` projecting to `\(m\)` units in the next layer `\(\mathbf{Y}_{1\times m} = \left(y_1, \ldots, y_m \right)\)`. 
+
+
+We can arrange our weights into a matrix `\(\mathbf{W}_{n \times m}\)` and compute all weighted sum at once using matrix multiplication:
+
+`$$\mathbf{X}_{1\times n}\,\mathbf{W}_{n\times m} = \mathbf{Y}_{1\times m}$$`
+
+&lt;!-- $$\begin{aligned} --&gt;
+&lt;!-- \mathbf{X}_{1\times n}\,\mathbf{W}_{n\times m} &amp;= \mathbf{Y}_{1\times m}\\[4pt] --&gt;
+&lt;!-- (x_1,\ldots,x_n)\! --&gt;
+&lt;!-- \begin{pmatrix} --&gt;
+&lt;!-- w_{1,1} &amp; \cdots &amp; w_{1,m}\\ --&gt;
+&lt;!-- \vdots  &amp; \ddots &amp; \vdots\\ --&gt;
+&lt;!-- w_{n,1} &amp; \cdots &amp; w_{n,m} --&gt;
+&lt;!-- \end{pmatrix} &amp;= (y_1,\ldots,y_m)  --&gt;
+&lt;!-- \end{aligned}$$ --&gt;
+
+]
+
+
+---
+class: inverse
+count: false
+
+### Neural networks
+
+`$$\begin{aligned}
+\mathbf{X}_{1\times n}\,\mathbf{W}_{n\times m} &amp;= \mathbf{Y}_{1\times m}\\[16pt]
+(x_1,\ldots,x_n)\!
+\begin{pmatrix}
+w_{1,1} &amp; \cdots &amp; w_{1,m}\\
+\vdots  &amp; \ddots &amp; \vdots\\
+w_{n,1} &amp; \cdots &amp; w_{n,m}
+\end{pmatrix} &amp;=   (y_1,\ldots,y_m) \\[16pt]
+\Biggl[  \underbrace{ (x_1,\ldots,x_n) \begin{pmatrix}
+w_{1,1} \\
+\vdots  \\
+w_{n,1} \end{pmatrix}}_{\text{the dot product between }\mathbf{X}_{1\times n}\\ \text{and 1st column of }\mathbf{W}_{n\times m}\\ \text{gives } y_1}\, , \quad \ldots , \quad (x_1,\ldots,x_n) \begin{pmatrix}
+w_{1,m} \\
+\vdots  \\
+w_{n,m} \end{pmatrix} \Biggr]&amp;= (y_1,\ldots,y_m)
+\end{aligned}$$`
+
+---
+### Matrices as _linear transformations_ of vectors
+
+We can think of matrices as functions, which takes vectors as input and apply _transformations_ to them. 
+
+`$$\overrightarrow{y} = f(\overrightarrow{x}) = A \overrightarrow{x}$$`
+
+---
+### Example: 'stretch' transformation
+
+.left-column[
+
+`\(S = \begin{bmatrix}  1+\delta &amp;  0 \\ 0  &amp; 1\end{bmatrix}\)`
+
+`\(S \begin{bmatrix}  x_1 &amp; x_2 &amp; \ldots \\ y_1 &amp; y_2 &amp; \ldots \end{bmatrix} = ?\)`
+
+]
+
+
+.right-column[
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-5-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+
+
+
+---
+### Example: 'stretch' transformation
+
+.left-column[
+
+`\(S = \begin{bmatrix}  1+\delta &amp;  0 \\ 0  &amp; 1\end{bmatrix}\)`
+
+
+&lt;!-- .center[![:scale 100%](./drawings/transp_stretch_matrix.png)] --&gt;
+
+`\(\begin{align*} S &amp;= \begin{bmatrix} 1 + \delta &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \\ S\vec{x} &amp;= \begin{bmatrix} 1 + \delta &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\ &amp;= \begin{bmatrix} (1 + \delta)x_1 \\ x_2 \end{bmatrix} \end{align*}\)`
+
+]
+
+.right-column[
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-6-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+class:inverse
+### Special matrices
+
+Identity matrix: `\(I = \begin{bmatrix}  1 &amp;  0 \\ 0  &amp; 1\end{bmatrix}\)`
+
+For any other matrix `\(A\)` we have that `\(AI = A = IA\)`
+
+
+---
+class:inverse
+### Special matrices
+
+Inverse matrix: `\(A^{-1}A=AA^{-1}=I\)`
+
+--
+
+`\(S = \begin{bmatrix}  1+\delta &amp;  0 \\ 0  &amp; 1\end{bmatrix}\)` has inverse `\(S^{-1} = \begin{bmatrix}  \frac{1}{1+\delta} &amp;  0 \\ 0  &amp; 1\end{bmatrix}\)` 
+
+--
+
+`\(SS^{-1} = \begin{bmatrix}  1+\delta &amp;  0 \\ 0  &amp; 1\end{bmatrix} \begin{bmatrix}  \frac{1}{1+\delta} &amp;  0 \\ 0  &amp; 1\end{bmatrix} = \begin{bmatrix}  \frac{1+\delta}{1+\delta} &amp;  0 \\ 0  &amp; 1\end{bmatrix} = \begin{bmatrix}  1 &amp;  0 \\ 0  &amp; 1\end{bmatrix} = I\)`
+
+
+---
+### Eigenvalues &amp; Eigenvectors
+
+
+.center[![:scale 75%](./drawings/transp_eigen_v2_01.png)]
+
+
+---
+### Eigenvalues &amp; Eigenvectors
+
+
+.center[![:scale 75%](./drawings/transp_eigen_v2_02.png)]
+
+
+
+---
+
+`\(Sv_1 = \begin{bmatrix}  1+\delta &amp;  0 \\ 0  &amp; 1\end{bmatrix} \begin{bmatrix}  1 \\  0\end{bmatrix} = \begin{bmatrix}  1+\delta \\  0\end{bmatrix} =  (1+\delta ) \begin{bmatrix}  1\\  0\end{bmatrix}= \lambda_1 v_1\)`
+
+`\(Sv_2 = \begin{bmatrix}  1+\delta &amp;  0 \\ 0  &amp; 1\end{bmatrix} \begin{bmatrix}  0 \\  1\end{bmatrix} = \begin{bmatrix}  0 \\  1\end{bmatrix} =  1 \begin{bmatrix}  0\\  1\end{bmatrix}= \lambda_2 v_2\)`
+
+
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-7-1.svg" style="display: block; margin: auto;" /&gt;
+
+
+---
+class:inverse
+### Principal component analysis (PCA)
+
+* A _dimensionality-reduction_ method
+--
+
+
+* Given `\(n\)`-dimensional vectors (e.g. recording from `\(n\)` neurons) as data, we obtain a lower-dimensional representation, by projecting the data on a set of _principal components_, while preserving as much of the data's variation as possible.
+--
+
+* Variance-covariance matrix: 
+`\(\Sigma  = \begin{bmatrix}  \text{Var}(x_1) &amp;  \text{Cov}(x_1,x_2) &amp; \cdots &amp; \text{Cov}(x_1,x_n) \\ \text{Cov}(x_2,x_1) &amp;\text{Var}(x_2) &amp; \cdots &amp; \text{Cov}(x_2,x_n)\\ \vdots &amp; \vdots &amp;  \ddots &amp; \vdots \\  \text{Cov}(x_n,x_1)  &amp; \text{Cov}(x_n,x_2)  &amp; \cdots &amp; \text{Var}(x_n) \end{bmatrix}\)`
+--
+
+
+* The eigenvectors of the variance-covariance are the principal components.
+--
+
+
+* The eigenvector with the largest eigenvalue represents the direction of maximal variation in the data.
+
+
+---
+### Principal component analysis (PCA)
+
+`\(\Sigma = \begin{bmatrix}  1 &amp;  0.99 \\ 0.99  &amp; 1.5\end{bmatrix}\)`
+
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-8-1.svg" style="display: block; margin: auto;" /&gt;
+
+
+---
+### Principal component analysis (PCA)
+
+Now showing the eigenvectors scaled by their respective eigenvalues.
+
+`$$\,$$`
+
+&lt;img src="slides_numerical_skills_part2_files/figure-html/unnamed-chunk-9-1.svg" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class:inverse
+Matlab code for PCA on [Github](https://github.com/mattelisi/NeuroMethods)
+
+.center[![:scale 50%](./img/matlab_pca.png)]
+
+
+---
+class: inverse
+name: summary-part1
+
+### Part 2 summary
+
+
+**Vectors** represent points/directions in space; **matrices** can be seen as functions that transform them.  
+
+**Linear combinations** of vectors can create new vectors from old ones; **span** is the space of possible combinations; **linear (in)dependence** tells us when vector carry redundant information.  
+
+**Matrix–vector multiplication** is a linear combination of the matrix columns; **dot products** connect algebra and geometry (gives angular distances between vector orientations); and **matrix multiplication** can be seens as "combination of combinations" of columns or a sequence of dot products.
+
+**Eigenvectors** are vectors which are fixed in direction under a given linear transformation (a matrix); the scaling factor of these eigenvectors is then called the **eigenvalue**. (Roughly the eigenvalue is a measure of the distortion induced by the transformation and the eigenvectors tell you about how the distortion is oriented.)
+
+**PCA** uses eigen-decomposition to find directions of maximal variance for constructing a simpler, interpretable representations.
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="./custom/macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-dark",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"ration": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
