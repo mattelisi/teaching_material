@@ -1,5 +1,3 @@
-# Misc teaching materials
-
 
 - [**Numerical skills lecture - part 1**](numerical_skills/slides_numerical_skills.html)
 - [**Numerical skills lecture - part 2**](numerical_skills/slides_numerical_skills_part2.html)
@@ -8,3 +6,4 @@
 
 Author: Matteo Lisi
 matteo.lisi (at) rhul.ac.uk
+[mlisi.xyz](https://mlisi.xyz/)
