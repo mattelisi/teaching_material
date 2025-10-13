@@ -16,6 +16,13 @@ output:
       ration: 16:9
     seal: false
 ---
+class: center, middle, inverse
+count: false
+
+.center[![:scale 100%](./img/slide_rhul_25.png)]
+
+
+---
 class: title-slide, center, inverse
 
 # `r rmarkdown::metadata$title`
@@ -907,22 +914,10 @@ Fourier transform is a powerful mathematical tool that decompose a function into
 - Frequency-domain representation of body temperature signal.
 
 - (hourly measurement, random noise added)
-]
 
 
-.right-column[
-.center[![:scale 80%](./img/fourier_cycles_01.png)]
-]
+<span style="font-size: 80%;">[(link to code)](https://github.com/mattelisi/NeuroMethods/blob/master/examples/fourier_transform/fourier_transform.m)</span>  
 
-
----
-
-### Fourier transform & filtering
-
-.left-column[
-- Frequency-domain representation of body temperature signal.
-
-- (hourly measurement, random noise added)
 ]
 
 
