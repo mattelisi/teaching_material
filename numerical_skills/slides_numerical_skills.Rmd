@@ -354,6 +354,8 @@ Differentiating the function $y(x) = x^2$
 
 --
 
+Exact _analytical_ calculation:
+
 $$\frac{dy}{dx} = \lim_{\Delta x \rightarrow 0} \frac{y(x + \Delta x)-y(x)}{(x + \Delta x) - x}$$
 
 ---
@@ -531,62 +533,62 @@ text(3, 0.3, expression(mu == 0), cex = 1.1, col="blue")
 text(3, 0.27, expression(sigma == 1), cex = 1.1, col="blue")
 ```
 
----
-#### Understanding the equation of the normal distribution
+<!-- --- -->
+<!-- #### Understanding the equation of the normal distribution -->
 
-```{r, fig.height=5.3,fig.width=7.5, dev='svg', echo=F, message=F, fig.align='center'}
+<!-- ```{r, fig.height=5.3,fig.width=7.5, dev='svg', echo=F, message=F, fig.align='center'} -->
 
-put.fig.letter <- function(label, location="topleft", x=NULL, y=NULL, 
-                           offset=c(0, 0), ...) {
-  if(length(label) > 1) {
-    warning("length(label) > 1, using label[1]")
-  }
-  if(is.null(x) | is.null(y)) {
-    coords <- switch(location,
-                     #topleft = c(0.015,0.98),
-                     topleft = c(0.025,0.98),
-                     topcenter = c(0.5525,0.98),
-                     topright = c(0.985, 0.98),
-                     bottomleft = c(0.015, 0.02), 
-                     bottomcenter = c(0.5525, 0.02), 
-                     bottomright = c(0.985, 0.02),
-                     c(0.015, 0.98) )
-  } else {
-    coords <- c(x,y)
-  }
-  this.x <- grconvertX(coords[1] + offset[1], from="nfc", to="user")
-  this.y <- grconvertY(coords[2] + offset[2], from="nfc", to="user")
-  text(labels=label[1], x=this.x, y=this.y, xpd=T, ...)
-}
-
-
-x <- seq(-6, 6, 0.05)  
-
-par(mfrow=c(2,3), mar=c(5,4,1.5,1)+0.1, bg = background_plot)
-
-plot(x, x, type="l", lwd=2, col="black") 
-put.fig.letter(label=" (a)", location="topleft", font=2)
-
-plot(x, x^2, type="l", lwd=2, col="black", ylab=expression(x^2)) 
-put.fig.letter(label=" (b)", location="topleft", font=2)
-
-plot(x, -x^2, type="l", lwd=2, col="black", ylab=expression(-x^2))
-put.fig.letter(label=" (c)", location="topleft", font=2)
-
-plot(x, -(x-1)^2, type="l", lwd=2, col="black", ylab=expression(-(x-mu)^2)) 
-lines(x, -(x+2)^2, type="l", lwd=2, col="#7E03A8FF", lty=2)
-text(4, -1.5, labels=expression(mu==1), col="black")
-text(-5, -1.5, labels=expression(mu==-2), col="#7E03A8FF")
-put.fig.letter(label=" (d)", location="topleft", font=2)
-
-plot(x, exp(-(x-1)^2), type="l", lwd=2, col="black", ylab=expression(exp(-(x-mu)^2)) )
-lines(x, exp(-(x+2)^2), type="l", lwd=2, col="#7E03A8FF", lty=2)
-text(4, 0.8, labels=expression(mu==1), col="black")
-text(-5, 0.8, labels=expression(mu==-2), col="#7E03A8FF")
-put.fig.letter(label=" (e)", location="topleft", font=2)
+<!-- put.fig.letter <- function(label, location="topleft", x=NULL, y=NULL,  -->
+<!--                            offset=c(0, 0), ...) { -->
+<!--   if(length(label) > 1) { -->
+<!--     warning("length(label) > 1, using label[1]") -->
+<!--   } -->
+<!--   if(is.null(x) | is.null(y)) { -->
+<!--     coords <- switch(location, -->
+<!--                      #topleft = c(0.015,0.98), -->
+<!--                      topleft = c(0.025,0.98), -->
+<!--                      topcenter = c(0.5525,0.98), -->
+<!--                      topright = c(0.985, 0.98), -->
+<!--                      bottomleft = c(0.015, 0.02),  -->
+<!--                      bottomcenter = c(0.5525, 0.02),  -->
+<!--                      bottomright = c(0.985, 0.02), -->
+<!--                      c(0.015, 0.98) ) -->
+<!--   } else { -->
+<!--     coords <- c(x,y) -->
+<!--   } -->
+<!--   this.x <- grconvertX(coords[1] + offset[1], from="nfc", to="user") -->
+<!--   this.y <- grconvertY(coords[2] + offset[2], from="nfc", to="user") -->
+<!--   text(labels=label[1], x=this.x, y=this.y, xpd=T, ...) -->
+<!-- } -->
 
 
-```
+<!-- x <- seq(-6, 6, 0.05)   -->
+
+<!-- par(mfrow=c(2,3), mar=c(5,4,1.5,1)+0.1, bg = background_plot) -->
+
+<!-- plot(x, x, type="l", lwd=2, col="black")  -->
+<!-- put.fig.letter(label=" (a)", location="topleft", font=2) -->
+
+<!-- plot(x, x^2, type="l", lwd=2, col="black", ylab=expression(x^2))  -->
+<!-- put.fig.letter(label=" (b)", location="topleft", font=2) -->
+
+<!-- plot(x, -x^2, type="l", lwd=2, col="black", ylab=expression(-x^2)) -->
+<!-- put.fig.letter(label=" (c)", location="topleft", font=2) -->
+
+<!-- plot(x, -(x-1)^2, type="l", lwd=2, col="black", ylab=expression(-(x-mu)^2))  -->
+<!-- lines(x, -(x+2)^2, type="l", lwd=2, col="#7E03A8FF", lty=2) -->
+<!-- text(4, -1.5, labels=expression(mu==1), col="black") -->
+<!-- text(-5, -1.5, labels=expression(mu==-2), col="#7E03A8FF") -->
+<!-- put.fig.letter(label=" (d)", location="topleft", font=2) -->
+
+<!-- plot(x, exp(-(x-1)^2), type="l", lwd=2, col="black", ylab=expression(exp(-(x-mu)^2)) ) -->
+<!-- lines(x, exp(-(x+2)^2), type="l", lwd=2, col="#7E03A8FF", lty=2) -->
+<!-- text(4, 0.8, labels=expression(mu==1), col="black") -->
+<!-- text(-5, 0.8, labels=expression(mu==-2), col="#7E03A8FF") -->
+<!-- put.fig.letter(label=" (e)", location="topleft", font=2) -->
+
+
+<!-- ``` -->
 
 
 ---

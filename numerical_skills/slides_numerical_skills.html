@@ -193,6 +193,8 @@ Differentiating the function `\(y(x) = x^2\)`
 
 --
 
+Exact _analytical_ calculation:
+
 `$$\frac{dy}{dx} = \lim_{\Delta x \rightarrow 0} \frac{y(x + \Delta x)-y(x)}{(x + \Delta x) - x}$$`
 
 ---
@@ -361,10 +363,62 @@ Normal or Gaussian distribution:
 
 &lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-8-1.svg" style="display: block; margin: auto;" /&gt;
 
----
-#### Understanding the equation of the normal distribution
+&lt;!-- --- --&gt;
+&lt;!-- #### Understanding the equation of the normal distribution --&gt;
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-9-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;!-- ```{r, fig.height=5.3,fig.width=7.5, dev='svg', echo=F, message=F, fig.align='center'} --&gt;
+
+&lt;!-- put.fig.letter &lt;- function(label, location="topleft", x=NULL, y=NULL,  --&gt;
+&lt;!--                            offset=c(0, 0), ...) { --&gt;
+&lt;!--   if(length(label) &gt; 1) { --&gt;
+&lt;!--     warning("length(label) &gt; 1, using label[1]") --&gt;
+&lt;!--   } --&gt;
+&lt;!--   if(is.null(x) | is.null(y)) { --&gt;
+&lt;!--     coords &lt;- switch(location, --&gt;
+&lt;!--                      #topleft = c(0.015,0.98), --&gt;
+&lt;!--                      topleft = c(0.025,0.98), --&gt;
+&lt;!--                      topcenter = c(0.5525,0.98), --&gt;
+&lt;!--                      topright = c(0.985, 0.98), --&gt;
+&lt;!--                      bottomleft = c(0.015, 0.02),  --&gt;
+&lt;!--                      bottomcenter = c(0.5525, 0.02),  --&gt;
+&lt;!--                      bottomright = c(0.985, 0.02), --&gt;
+&lt;!--                      c(0.015, 0.98) ) --&gt;
+&lt;!--   } else { --&gt;
+&lt;!--     coords &lt;- c(x,y) --&gt;
+&lt;!--   } --&gt;
+&lt;!--   this.x &lt;- grconvertX(coords[1] + offset[1], from="nfc", to="user") --&gt;
+&lt;!--   this.y &lt;- grconvertY(coords[2] + offset[2], from="nfc", to="user") --&gt;
+&lt;!--   text(labels=label[1], x=this.x, y=this.y, xpd=T, ...) --&gt;
+&lt;!-- } --&gt;
+
+
+&lt;!-- x &lt;- seq(-6, 6, 0.05)   --&gt;
+
+&lt;!-- par(mfrow=c(2,3), mar=c(5,4,1.5,1)+0.1, bg = background_plot) --&gt;
+
+&lt;!-- plot(x, x, type="l", lwd=2, col="black")  --&gt;
+&lt;!-- put.fig.letter(label=" (a)", location="topleft", font=2) --&gt;
+
+&lt;!-- plot(x, x^2, type="l", lwd=2, col="black", ylab=expression(x^2))  --&gt;
+&lt;!-- put.fig.letter(label=" (b)", location="topleft", font=2) --&gt;
+
+&lt;!-- plot(x, -x^2, type="l", lwd=2, col="black", ylab=expression(-x^2)) --&gt;
+&lt;!-- put.fig.letter(label=" (c)", location="topleft", font=2) --&gt;
+
+&lt;!-- plot(x, -(x-1)^2, type="l", lwd=2, col="black", ylab=expression(-(x-mu)^2))  --&gt;
+&lt;!-- lines(x, -(x+2)^2, type="l", lwd=2, col="#7E03A8FF", lty=2) --&gt;
+&lt;!-- text(4, -1.5, labels=expression(mu==1), col="black") --&gt;
+&lt;!-- text(-5, -1.5, labels=expression(mu==-2), col="#7E03A8FF") --&gt;
+&lt;!-- put.fig.letter(label=" (d)", location="topleft", font=2) --&gt;
+
+&lt;!-- plot(x, exp(-(x-1)^2), type="l", lwd=2, col="black", ylab=expression(exp(-(x-mu)^2)) ) --&gt;
+&lt;!-- lines(x, exp(-(x+2)^2), type="l", lwd=2, col="#7E03A8FF", lty=2) --&gt;
+&lt;!-- text(4, 0.8, labels=expression(mu==1), col="black") --&gt;
+&lt;!-- text(-5, 0.8, labels=expression(mu==-2), col="#7E03A8FF") --&gt;
+&lt;!-- put.fig.letter(label=" (e)", location="topleft", font=2) --&gt;
+
+
+&lt;!-- ``` --&gt;
 
 
 ---
@@ -374,7 +428,7 @@ Binomial distribution:
 
 `$$\Pr(x) = {n\choose k} p^k(1-p)^{n-k}$$`
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-10-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-9-1.svg" style="display: block; margin: auto;" /&gt;
 
 _Note: this is a discrete function, and therefore not differentiable._
 
@@ -384,7 +438,7 @@ _Note: this is a discrete function, and therefore not differentiable._
 
 `$$y = \sin(x)$$`
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-11-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-10-1.svg" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -439,7 +493,7 @@ where `\(\pi = 3.14159265359 \ldots\)`
 ### Trigonometric functions
 
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-12-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-11-1.svg" style="display: block; margin: auto;" /&gt;
 
 --
 - Sine and cosine functions takes angles as input, and return numbers between -1 and 1 as outputs
@@ -462,7 +516,7 @@ Oscillations in scalp EEG activity
 ---
 Monthly cycle in women's body temperature
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-12-1.svg" style="display: block; margin: auto;" /&gt;
 
 --
 
@@ -477,7 +531,7 @@ Monthly cycle in women's body temperature
 count: false
 Monthly cycle in women's body temperature
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-14-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-13-1.svg" style="display: block; margin: auto;" /&gt;
 
 
 .pull-left[
@@ -525,7 +579,7 @@ Additionally, we can describe an oscillation according to it's frequency (the in
 
 Monthly cycle in women's body temperature
 
-&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-15-1.svg" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_numerical_skills_files/figure-html/unnamed-chunk-14-1.svg" style="display: block; margin: auto;" /&gt;
 
 --
 

@@ -608,7 +608,7 @@ class:inverse
 ---
 class: inverse
 
-### Neural networks
+### Matrix multiplication in neural networks
 
 .center[![:scale 90%](./img/network_02.webp)]
 
@@ -617,7 +617,7 @@ class: inverse
 class: inverse
 count: false
 
-### Neural networks
+### Matrix multiplication in neural networks
 
 .pull-left[
 
@@ -651,7 +651,7 @@ $$\mathbf{X}_{1\times n}\,\mathbf{W}_{n\times m} = \mathbf{Y}_{1\times m}$$
 class: inverse
 count: false
 
-### Neural networks
+### Matrix multiplication in neural networks
 
 $$\begin{aligned}
 \mathbf{X}_{1\times n}\,\mathbf{W}_{n\times m} &= \mathbf{Y}_{1\times m}\\[16pt]
@@ -806,8 +806,10 @@ text(1+delta,0,labels=expression(Sv[1]==lambda~v[1]), pos=1, cex=2, col="blue", 
 ```
 
 
+
 ---
-class:inverse
+class: inverse
+count: false
 ### Principal component analysis (PCA)
 
 * A _dimensionality-reduction_ method
@@ -822,7 +824,7 @@ $\Sigma  = \begin{bmatrix}  \text{Var}(x_1) &  \text{Cov}(x_1,x_2) & \cdots & \t
 --
 
 
-* The eigenvectors of the variance-covariance are the principal components.
+* **The eigenvectors of the variance-covariance are the _principal components_.**
 --
 
 
@@ -900,11 +902,20 @@ legend("bottomright",c(expression(lambda[1]~v[1]),expression(lambda[2]~v[2])),lw
 
 ---
 class:inverse
-Matlab code for PCA on [Github](https://github.com/mattelisi/NeuroMethods)
+Matlab code for PCA on [Github](https://github.com/mattelisi/NeuroMethods/blob/master/examples/PCA/pca_example.m)
 
-.center[![:scale 50%](./img/matlab_pca.png)]
+.center[![:scale 60%](./img/matlab_pca.png)]
 
+---
+class:inverse
 
+#### Neural trajectories revealed by PCA
+
+.center[![:scale 80%](./img/neuraltra_cisek.png)]
+
+<span style="font-size: 70%;">
+Thura, D., Cabana, J.-F., Feghaly, A., & Cisek, P. (2022). Integrated neural dynamics of sensorimotor decisions and actions. _PLOS Biology, 20_(12), e3001861. [https://doi.org/10.1371/journal.pbio.3001861](https://doi.org/10.1371/journal.pbio.3001861)
+</span>  
 ---
 class: inverse
 name: summary-part1
