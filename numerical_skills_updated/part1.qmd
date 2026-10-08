@@ -3,11 +3,8 @@ title: "Numerical skills for neuroscience"
 subtitle: "Part 1 · Functions, change and rhythms"
 ---
 
-## Three questions to carry into a paper
+## Outline part 1
 
-::: {.eyebrow}
-An introduction for MSc neuroscience
-:::
 
 | A mathematical tool | A question it helps us ask |
 |:---|:---|
@@ -15,13 +12,6 @@ An introduction for MSc neuroscience
 | **Derivative** $dy/dt$ | How quickly does something change? |
 | **Fourier transform** | Which rhythms are present? |
 
-::: {.takeaway}
-Aim: read a graph or equation and explain what it means.
-:::
-
-::: {.notes}
-Allow about 2 minutes. This is mathematical literacy, not a test of algebraic speed. Students need only basic arithmetic and graph reading; explain each new symbol as it appears. Probability and statistical inference belong to the separate statistics module. The core route ends at “Three things you can now explain”; later slides are optional. R code is available for demonstration or follow-up, not a prerequisite for following the lecture.
-:::
 
 ## A function maps an input to an output
 
@@ -35,7 +25,7 @@ $$f(x)=x \qquad f(x)=x^2 \qquad f(x)=\tfrac15x^3+x^2-1$$
 Allow 2 minutes. Read the horizontal coordinate first, then move up to the curve and across to the vertical coordinate. A function is a rule, not necessarily a smooth curve. The three formulas are examples, not a list to memorise. Ask what f(2) is for the first two: 2 and 4. A curve can have the same output for several inputs without ceasing to be a function.
 :::
 
-## Read the symbols before doing the algebra
+## Function notation (example: exponential decay)
 
 $$\underbrace{V(t)}_{\text{voltage at time }t}
 =\underbrace{V_0}_{\text{starting value}}
@@ -52,7 +42,7 @@ Check the units: $t$ and $\tau$ must use the same time unit.
 :::
 
 ::: {.notes}
-Allow 2 minutes. Say “V of t”, not “V times t”. This is an illustrative decay model for a deviation from a baseline. A more complete membrane-potential equation would add the resting level. A parameter is held fixed while we trace a particular curve; changing it gives a different curve. The exponent must be dimensionless. Briefly mention that f(x,t) has two inputs, without adding multivariable calculus.
+Say “V of t”, not “V times t”. This is an illustrative decay model for a deviation from a baseline. e.g. a discharging capacitor: imagine a capacitor (a component that stores electrical charge) connected to a resistor; initially, the capacitor is charged to a voltage V_0, say 10 volts. Once connected to the resistor, it gradually discharges. A parameter (V_0) is held fixed while we trace a particular curve; changing it gives a different curve. The exponent must be dimensionless. Briefly mention that f(x,t) has two inputs, without adding multivariable calculus.
 :::
 
 ## Exponentials describe growth and decay
@@ -62,7 +52,7 @@ Allow 2 minutes. Say “V of t”, not “V times t”. This is an illustrative 
 $$\exp(x)=e^x \qquad e\approx2.718 \qquad V(t)=V_0 e^{-t/\tau}$$
 
 ::: {.notes}
-Allow 2 minutes. Equal input steps multiply the output by a fixed factor. The minus sign gives decay when tau is positive. Tau is a time constant, not a half-life: exp(-1) is about 0.37. Doubling tau makes decay slower. This type of relationship appears in simple models of relaxation or decay; do not imply that every neural response is exponential.
+Equal input steps multiply the output by a fixed factor. The minus sign gives decay when tau is positive. Tau is a time constant, not a half-life: exp(-1) is about 0.37. Doubling tau makes decay slower. This type of relationship appears in simple models of relaxation or decay.
 :::
 
 ## A logarithm reverses an exponential
@@ -84,11 +74,21 @@ In R: `exp(x)` and `log(x)`.
 :::
 ::::
 
-::: {.notes}
-Allow 2 minutes. In the product rule a and b must be positive. Natural log uses base e; papers may instead use log10 or log2, so check the methods and axes. Logarithmic scales turn multiplicative changes into additive distances. Do not introduce a probability example here. The plotted domain deliberately excludes zero, where ln is undefined as a real number (and log(0) returns -Inf in R).
+::: {.fragment}
+
+:::: {.small}
+
+The sum of two logarithm equal the logarithm of their product. This is useful when calculating the _joint probability_ of many independent events (it is computed as the product of individual event probabilities, and it is often convenient to turn this into a sum using logarithms).
+
+::::
+
 :::
 
-## Pause: read the curve
+::: {.notes}
+In the product rule a and b must be positive. Natural log uses base e; papers may instead use log10 or log2, so check the methods and axes. Logarithmic scales turn multiplicative changes into additive distances. The plotted domain deliberately excludes zero, where ln is undefined as a real number (and log(0) returns -Inf in R).
+:::
+
+## Quiz: read the curve
 
 ::: {.prompt}
 For $V(t)=V_0e^{-t/\tau}$, doubling $\tau$ makes the decay…
@@ -101,10 +101,10 @@ For $V(t)=V_0e^{-t/\tau}$, doubling $\tau$ makes the decay…
 :::
 
 ::: {.notes}
-Allow 1 minute of private prediction or neighbour discussion before revealing the answer. At t = tau the remaining fraction is always exp(-1). A useful extra check: what happens to ln(x) when a positive x is multiplied by e? It increases by 1. Avoid treating this as a graded test.
+At t = tau the remaining fraction is always exp(-1). A useful extra check: what happens to ln(x) when a positive x is multiplied by e? It increases by 1. 
 :::
 
-## A slope is a change divided by a change
+## The _gradient_ is a difference divided by a difference
 
 :::: {.columns}
 ::: {.column width="58%"}
@@ -120,18 +120,22 @@ $\Delta$ means **change in**.
 ::::
 
 ::: {.notes}
-Allow 2 minutes. Link back to a familiar graph of position against time. The numerator is a vertical change, the denominator a horizontal change. This is not y/t: the starting values matter. Slope has units, which often tell us its scientific interpretation. For a line the slope is the same everywhere.
+Link back to a familiar graph of position against time. The numerator is a vertical change, the denominator a horizontal change. This is not y/t: the starting values matter. Slope has units, which often tell us its scientific interpretation. For a line the slope is the same everywhere.
 :::
 
-## On a curve, the slope depends on where you are
+## On a curve, the gradient depends on where you are
 
-![](figures/tangent.svg){height=400 fig-alt="Three secant lines on x squared, using successively smaller gaps from x equals 1. Their slopes approach the dashed tangent slope of 2."}
+![](figures/tangent.svg){height=400 fig-alt="Three secant lines on x squared, using successively smaller gaps from x equals 1. Their gradients approach the dashed tangent slope of 2."}
+
+::: {.fragment}
 
 $$f'(x)=\frac{df}{dx}
 =\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$$
 
+:::
+
 ::: {.notes}
-Allow 3 minutes. Teal is the curve; orange is the secant through two points; the dashed line is the tangent. Read the formula as “change in output divided by a very small change in input”. Here x is 1 and the slopes are 3.5, 2.5 and 2.05, approaching 2. The derivative exists when this limiting slope exists. Do not claim every function is differentiable: a sharp corner is a useful counterexample. The algebraic derivation is in the optional slides.
+Teal is the curve; orange is the secant through two points; the dashed line is the tangent. Read the formula as “change in output divided by a very small change in input”. Here x is 1 and the slopes are 3.5, 2.5 and 2.05, approaching 2. The derivative exists when this limiting slope exists. not all functions are differentiable: a sharp corner is a useful counterexample. The algebraic derivation is in the optional slides.
 :::
 
 ## A derivative tells us the local direction of change
@@ -144,43 +148,132 @@ $$f(x)=x^2 \qquad\Rightarrow\qquad f'(x)=2x$$
 Allow 2 minutes. A negative derivative means decreasing as x increases, not necessarily a negative function value. A zero derivative means a horizontal tangent, not automatically a maximum or minimum: x cubed at zero is a counterexample. Ask learners to point to a region where the value is positive but the derivative is negative.
 :::
 
+
+## Example: differentiating gaze position to compute gaze velocity
+
+.center[![:scale 50%](./img/saccade_plot.png)]
+
+
 ## From gaze position to gaze velocity
 
 ![](figures/gaze.svg){height=390 fig-alt="A simulated gaze position rises smoothly by 10 degrees. Its finite-difference velocity is a brief positive peak."}
 
+_Numerical_ differentiation: for digital signals described by a set of points we can estimate the derivative using a finite difference approach
+
 $$v_{i+1/2}\approx\frac{x_{i+1}-x_i}{t_{i+1}-t_i}$$
 
 ::: {.notes}
-Allow 3 minutes. Label this as simulated. The subscript i refers to a sample number, not a power. The forward difference is naturally plotted at the midpoint of each interval; N positions give N-1 differences. Units are degrees divided by seconds. On a regular grid the denominator is the sampling interval. In R: velocity <- diff(position) / diff(time). Derivatives of data are estimates, unlike the exact derivative of an analytic function.
+Label this as simulated. The subscript i refers to a sample number. The forward difference is naturally plotted at the midpoint of each interval; N positions give N-1 differences. Units are degrees divided by seconds. On a regular grid the denominator is the sampling interval. In R: velocity <- diff(position) / diff(time). Derivatives of data are estimates, unlike the exact derivative of an analytic function.
 :::
 
 ## Small measurement errors can become large derivative errors
 
 ![](figures/derivative_noise.svg){height=410 fig-alt="Small added noise barely changes the position trace but strongly changes the numerical velocity trace. The noiseless reference is teal."}
 
-::: {.takeaway}
-Differencing also measures changes in the noise.
-:::
+
 
 ::: {.notes}
-Allow 1 minute. Explain qualitatively: subtracting nearby samples then dividing by a short interval amplifies rapid fluctuations. Smoothing can help, but changes timing and amplitude; it is an analysis choice that should be reported. Do not prescribe a particular filter or present a noisy derivative as a ground-truth velocity.
+Explain qualitatively: subtracting nearby samples then dividing by a short interval amplifies rapid fluctuations. Smoothing can help, but changes timing and amplitude; it is an analysis choice that should be reported. Do not prescribe a particular filter or present a noisy derivative as a ground-truth velocity.
 :::
 
-## Pause: keep track of the units
+<!-- ## Pause: keep track of the units -->
 
-::: {.prompt}
-Gaze moves by $0.6^\circ$ between samples separated by **2 ms**.
+<!-- ::: {.prompt} -->
+<!-- Gaze moves by $0.6^\circ$ between samples separated by **2 ms**. -->
 
-What is its average velocity over this interval, in degrees per second?
-:::
+<!-- What is its average velocity over this interval, in degrees per second? -->
+<!-- ::: -->
 
-::: {.fragment}
-$$\frac{0.6^\circ}{0.002\ \mathrm{s}}=300^\circ/\mathrm{s}$$
-:::
+<!-- ::: {.fragment} -->
+<!-- $$\frac{0.6^\circ}{0.002\ \mathrm{s}}=300^\circ/\mathrm{s}$$ -->
+<!-- ::: -->
 
-::: {.notes}
-Allow 1 minute. The common wrong answer is 0.3: that is degrees per millisecond, not degrees per second. The point is unit conversion, not mental arithmetic speed. We have estimated average velocity over one interval, rather than knowing every instantaneous velocity within it.
-:::
+<!-- ::: {.notes} -->
+<!-- Allow 1 minute. The common wrong answer is 0.3: that is degrees per millisecond, not degrees per second. The point is unit conversion, not mental arithmetic speed. We have estimated average velocity over one interval, rather than knowing every instantaneous velocity within it. -->
+<!-- ::: -->
+
+## Probability _density_ functions
+
+Normal or Gaussian distribution:
+
+$$p(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2}$$
+
+```{r, fig.height=4.5,fig.width=5.8, dev='svg', echo=F, message=F, fig.align='center'}
+x <- seq(-6,6,1/10)
+# paper <- "#faf9f5"
+par(bg = "#faf9f5")
+plot(x,dnorm(x), xlab="x",ylab="probability 'density'",type="l",col="blue",lwd=3, bty="n")
+abline(h=0, lty=2)
+abline(v=0, lty=2)
+
+text(3, 0.3, expression(mu == 0), cex = 1.1, col="blue")
+text(3, 0.27, expression(sigma == 1), cex = 1.1, col="blue")
+```
+
+
+
+## Probability _mass_ functions
+
+Binomial distribution:
+
+$$\Pr(x) = {n\choose k} p^k(1-p)^{n-k}$$
+
+```{r, fig.height=4.5,fig.width=5.8, dev='svg', echo=F, message=F, fig.align='center'}
+
+par(bg = "#faf9f5", mfrow=c(1,1))
+
+simplepmf_binom <- function(size, prob,
+                            xlab = "k", ylab = "probability 'mass'",
+                            off = 0.20, lwd = 3,
+                            col = c("black", "#8080FF"),
+                            pch_top = 16, top_cex = 1,
+                            ...) {
+  stopifnot(length(size) == 1, size >= 0)
+
+  k <- 0:size
+  prob <- as.vector(prob)
+  m <- length(prob)
+
+  # compute pmf(s)
+  Y <- sapply(prob, function(p) dbinom(k, size, p))
+  if (is.null(dim(Y))) Y <- cbind(Y)  # ensure matrix
+
+  if (length(col) < m) col <- rep_len(col, m)
+
+  # limits & empty canvas
+  ylim <- c(0, max(Y))
+  xlim <- range(k) + c(-1, 1) * off
+  plot(NULL, xlim = xlim, ylim = ylim, xlab = xlab, ylab = ylab,
+       bty = "n", xaxt = "n", ...)
+  axis(1, at = k)                 # integer ticks
+  abline(h = 0, lty = 2, col = "gray60")
+
+  # draw sticks (and optional dots at the top)
+  for (i in seq_len(m)) {
+    xoff <- (i - 1) * off
+    for (j in seq_along(k)) {
+      lines(c(k[j], k[j]) + xoff, c(0, Y[j, i]), lwd = lwd, col = col[i])
+      if (!is.null(pch_top)) {
+        points(k[j] + xoff, Y[j, i], pch = pch_top, cex = top_cex, col = col[i])
+      }
+    }
+  }
+
+  invisible(Y)
+}
+
+simplepmf_binom(size = 10, prob = 1/6,
+                main = " ",
+                col = "blue")
+
+text(6, 0.27, expression(n == 10), cex = 1.1, col="blue")
+text(6, 0.2, expression(p == frac(1, 6)), cex = 1.1, col="blue")
+
+```
+
+_Note: this is a discrete function, and therefore not differentiable._
+
+
 
 ## Sine and cosine turn angles into oscillations
 
@@ -403,14 +496,23 @@ Exit check: a peak at **5 Hz** corresponds to what period?
 Allow 1 minute. Answer: 1/5 second = 0.2 seconds = 200 ms. This is the end of the core lecture. Take a break before Part 2. Extensions follow for extra time, questions or independent study. The key bridge into linear algebra is that a sampled signal is also a vector, and a transform changes its representation.
 :::
 
-## Deriving the derivative of $x^2$ {.optional}
+## Differentiating the function $f(x)=x^2$ {.optional}
 
-$$\begin{aligned}
-\frac{(x+h)^2-x^2}{h}
-&=\frac{2xh+h^2}{h}\\[0.5em]
-&=2x+h\quad(h\ne0)\\[0.5em]
-\lim_{h\to0}(2x+h)&=2x
-\end{aligned}$$
+<!-- $$\begin{aligned} -->
+<!-- \frac{(x+h)^2-x^2}{h} -->
+<!-- &=\frac{2xh+h^2}{h}\\[0.5em] -->
+<!-- &=2x+h\quad(h\ne0)\\[0.5em] -->
+<!-- \lim_{h\to0}(2x+h)&=2x -->
+<!-- \end{aligned}$$ -->
+
+$$\begin{align}
+\frac{df}{dx} &= \lim_{h \rightarrow 0} \frac{f(x + h)-f(x)}{(x + h) - x}\\
+&=\lim_{h\to 0 }\frac{(x+h)^2-x^2}{h} \\
+&=\lim_{h\to 0}\frac{x^2+2xh+h^2-x^2}{h} \\
+&=\lim_{h\to 0}\frac{2xh+h^2}{h} \\
+&=\lim_{h\to 0}2x+h \\
+&= 2x
+\end{align}$$
 
 ::: {.notes}
 Optional, about 3 minutes. Expand the square on paper if needed. We divide by nonzero h and then take the limit; substituting h=0 into the original fraction would give 0/0, not the derivative. This replaces many near-identical algebra slides in the original. Start from the geometric interpretation already established.

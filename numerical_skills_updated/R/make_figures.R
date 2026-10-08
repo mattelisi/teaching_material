@@ -55,7 +55,7 @@ figure("functions", function() {
     abline(h = 0, v = 0, col = pale)
     lines(x, y, lwd = 3, col = teal)
   }
-})
+}, width = 12)
 figure("exponential", function() {
   par(mfrow = c(1, 2))
   x <- seq(-2, 2, length.out = 250)
@@ -85,7 +85,7 @@ figure("slope", function() {
   points(c(1, 3), c(3, 7), pch = 19, cex = 1.2, col = teal)
   text(2, 2, "2 seconds", col = orange)
   text(3.05, 5, "4 cm", pos = 4, col = purple)
-}, width = 6.5)
+}, width = 6.5, height=6)
 figure("tangent", function() {
   par(mfrow = c(1, 3))
   x <- seq(-0.1, 3.1, length.out = 300)
@@ -117,7 +117,7 @@ figure("gaze", function() {
   plot(t, position, type = "b", pch = 16, cex = 0.35, lwd = 2, col = teal,
        xlab = "Time (s)", ylab = "Gaze position (degrees)", main = "A simulated eye movement")
   plot((t[-1] + t[-length(t)]) / 2, velocity, type = "l", lwd = 3, col = orange,
-       xlab = "Interval midpoint (s)", ylab = "Velocity (degrees/s)", main = "Change in position / elapsed time")
+       xlab = "Time (s)", ylab = "Velocity (degrees/s)", main = "Change in position / elapsed time")
 })
 figure("derivative_noise", function() {
   set.seed(4)
