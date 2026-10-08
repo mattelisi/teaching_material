@@ -1,0 +1,161 @@
+original_path,bytes,category,referenced_in_active_Rmd,review_and_disposition
+numerical_skills/.Rhistory,19715,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/Numerical & mathematical skills for neuroscience - part 1.pdf,4161914,rendered lecture,no,Text and page previews reviewed; new static PDF supplied
+numerical_skills/Numerical & mathematical skills for neuroscience - part 2.pdf,2394768,rendered lecture,no,Text and page previews reviewed; new static PDF supplied
+numerical_skills/bk_part1_files/animate.css/animate.xaringan.css,79123,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-1-1.svg,114098,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-10-1.svg,257246,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-11-1.svg,100810,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-12-1.svg,151330,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-13-1.svg,775750,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-14-1.svg,775750,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-15-1.svg,272273,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-2-1.svg,137837,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-3-1.svg,107948,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-4-1.svg,80344,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-5-1.svg,74580,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-6-1.svg,41079,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-7-1.svg,14069,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-8-1.svg,193678,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/figure-html/unnamed-chunk-9-1.svg,685157,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/header-attrs/header-attrs.js,507,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/remark-css/default-fonts.css,539,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/remark-css/default.css,1355,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/tachyons/tachyons.min.css,73972,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/tile-view/tile-view.css,902,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/bk_part1_files/tile-view/tile-view.js,5553,backup build output,no,Duplicate/older build resources; not carried forward
+numerical_skills/custom/macros.js,140,presentation infrastructure,yes,Read authored style/macros; superseded by Quarto and theme.scss
+numerical_skills/custom/style.css,435,presentation infrastructure,yes,Read authored style/macros; superseded by Quarto and theme.scss
+numerical_skills/drawings/dot01.png,109436,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: dot product and corrected norm
+numerical_skills/drawings/dot02.png,135382,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: dot-product angle cases
+numerical_skills/drawings/eigen_01.png,38393,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: eigenvector equation and caveats
+numerical_skills/drawings/eigen_02.png,85867,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: diagonal-stretch eigenvectors
+numerical_skills/drawings/eigen_v2_01.png,53853,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: eigenvector equation and caveats
+numerical_skills/drawings/eigen_v2_02.png,91389,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: diagonal-stretch eigenvectors
+numerical_skills/drawings/hadamard.png,29157,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: elementwise R multiplication
+numerical_skills/drawings/identity.png,21182,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: editable identity equation
+numerical_skills/drawings/linear_combi_1.png,26444,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: linear-combination equation
+numerical_skills/drawings/linear_combi_inde.png,45271,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: span of a plane versus line
+numerical_skills/drawings/linear_combi_matrix.png,21184,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: columns-as-combinations equation
+numerical_skills/drawings/matrix_multi_01.png,87163,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: row-column product
+numerical_skills/drawings/matrix_multi_02.png,87823,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: column-combination product
+numerical_skills/drawings/matrix_rules.png,76711,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: dimension rules and associativity in notes
+numerical_skills/drawings/scalar_multi.png,60409,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: scalar multiplication
+numerical_skills/drawings/stretch_matrix.png,26659,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: transformation grid
+numerical_skills/drawings/transp_dot01.png,106744,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: dot product and corrected norm
+numerical_skills/drawings/transp_dot02.png,129158,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: dot-product angle cases
+numerical_skills/drawings/transp_eigen_01.png,15183,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: eigenvector equation and caveats
+numerical_skills/drawings/transp_eigen_02.png,58757,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: diagonal-stretch eigenvectors
+numerical_skills/drawings/transp_eigen_v2_01.png,57206,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: eigenvector equation and caveats
+numerical_skills/drawings/transp_eigen_v2_02.png,96658,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: diagonal-stretch eigenvectors
+numerical_skills/drawings/transp_hadamard.png,22904,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: elementwise R multiplication
+numerical_skills/drawings/transp_identity.png,15811,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: editable identity equation
+numerical_skills/drawings/transp_linear_combi_1.png,19630,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: linear-combination equation
+numerical_skills/drawings/transp_linear_combi_inde.png,35065,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: span of a plane versus line
+numerical_skills/drawings/transp_linear_combi_matrix.png,16863,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: columns-as-combinations equation
+numerical_skills/drawings/transp_matrix_multi_01.png,63398,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: row-column product
+numerical_skills/drawings/transp_matrix_multi_02.png,65741,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: column-combination product
+numerical_skills/drawings/transp_matrix_rules.png,54326,hand-drawn diagram,yes,Reviewed; recreated in R or editable notation: dimension rules and associativity in notes
+numerical_skills/drawings/transp_scalar_multi.png,26272,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: scalar multiplication
+numerical_skills/drawings/transp_stretch_matrix.png,20310,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: transformation grid
+numerical_skills/drawings/transp_vector3D.png,35872,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: generalisation to n measurements in notes
+numerical_skills/drawings/transp_vector_01.png,19830,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: vector coordinates
+numerical_skills/drawings/transp_vector_sum.png,64301,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: vector addition
+numerical_skills/drawings/vector3D.png,53881,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: generalisation to n measurements in notes
+numerical_skills/drawings/vector_01.png,28301,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: vector coordinates
+numerical_skills/drawings/vector_sum.png,60502,hand-drawn diagram,no,Reviewed; recreated in R or editable notation: vector addition
+numerical_skills/drawings/white_trasp.sh,74,asset conversion script,no,Read; machine-specific ~/magick dependency not needed
+numerical_skills/fourier_transform.m,1731,MATLAB teaching script,yes,"Translated with exact hourly grid, explicit cutoff units and R inverse scaling"
+numerical_skills/img/521_2021_6352_Fig5_HTML.webp,240652,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/Circle_cos_sin.gif,529197,animation,yes,Frames inspected; concepts redrawn as reproducible static R figures
+numerical_skills/img/Example_of_Fourier_Convergence.gif,248846,animation,no,Frames inspected; concepts redrawn as reproducible static R figures
+numerical_skills/img/Finite_difference_method.png,84271,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/Finite_difference_method.svg,24361,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/LA_vector_01.png,6290,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/Propeller_strobe.ogx,3753967,video,no,Matching propeller encodings inspected; replaced by exact R aliasing diagram
+numerical_skills/img/algo_availability.png,65567,unused unrelated screenshot,no,Reviewed; unrelated to lecture; not transferred
+numerical_skills/img/aliasing.png,100242,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/arti_neuron.png,402971,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/brain_waves.png,1261555,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/cosine_function.png,56095,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/deg_rad.png,102277,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/diff01.png,53006,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/filtered.png,32371,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/fourier01.svg,19740,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/fourier02.svg,19265,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/fourier_1.gif,326541,animation,no,Frames inspected; concepts redrawn as reproducible static R figures
+numerical_skills/img/fourier_cycles_01.png,61908,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/fourier_series-011.png,847875,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/function_def.png,29685,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/journal.pbio.3001861.g004.PNG,3056588,published figure,no,Reviewed and retained unchanged as full-figure context; deck uses original existing panel crop
+numerical_skills/img/m3.JPG,56507,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/matlab_fft_code.png,40972,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/matlab_pca.png,13624,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/network_01.png,106775,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/network_02.webp,85958,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/neuraltra_cisek.png,969755,published figure panel,yes,Retained unchanged as existing panel-A crop with citation and licence
+numerical_skills/img/propeller.mp4,1204344,video,yes,Matching propeller encodings inspected; replaced by exact R aliasing diagram
+numerical_skills/img/saccade_plot.png,91569,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/slide_rhul_25.png,511049,institutional slide,yes,Dated attendance/feedback links not transferred; current official slide can be added
+numerical_skills/img/square_fourier.png,143411,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/trig00.png,12356,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/trig01.png,22098,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/trig02.png,21943,image asset,yes,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/vector01.png,5185,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/img/vector02.png,14376,image asset,no,Visually reviewed in lecture context/contact sheets; relevant concepts redrawn; unused variants not transferred
+numerical_skills/libs/animate.css/animate.xaringan.css,79123,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/crosstalk/css/crosstalk.min.css,1306,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/crosstalk/js/crosstalk.js,49030,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/crosstalk/js/crosstalk.js.map,54853,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/crosstalk/js/crosstalk.min.js,18925,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/crosstalk/js/crosstalk.min.js.map,50338,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/crosstalk/scss/crosstalk.scss,1816,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/header-attrs/header-attrs.js,507,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/htmltools-fill/fill.css,585,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/htmlwidgets/htmlwidgets.js,33190,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/jquery/jquery-AUTHORS.txt,13369,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/jquery/jquery.js,287630,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/jquery/jquery.min.js,89476,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/jquery/jquery.min.map,137986,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/plotly-binding/plotly.js,33758,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css,173,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/plotly-main/plotly-latest.min.js,3665833,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/tachyons/tachyons.min.css,73972,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/tile-view/tile-view.css,902,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/tile-view/tile-view.js,5553,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/libs/typedarray/typedarray.min.js,22444,vendored dependency,no,Build infrastructure replaced by Quarto-managed resources; not separately security-audited
+numerical_skills/pca.R,1060,R teaching script,no,"Replaced by base-R simulation and explicit centred PCA, scores and reconstruction"
+numerical_skills/slides_numerical_skills.Rmd,24538,lecture source,no,Read in full; rewritten in Quarto with speaker notes
+numerical_skills/slides_numerical_skills.html,19855,rendered lecture,no,Embedded source/content compared with Rmd and PDF
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-1-1.svg,114098,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-10-1.svg,100353,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-11-1.svg,153502,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-12-1.svg,694691,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-13-1.svg,694691,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-14-1.svg,231606,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-15-1.svg,272273,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-2-1.svg,137837,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-3-1.svg,107948,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-4-1.svg,80344,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-5-1.svg,74580,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-6-1.svg,41079,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-7-1.svg,14069,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-8-1.svg,193678,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_files/figure-html/unnamed-chunk-9-1.svg,258781,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2.Rmd,25892,lecture source,no,Read in full; rewritten in Quarto with speaker notes
+numerical_skills/slides_numerical_skills_part2.html,26376,rendered lecture,no,Embedded source/content compared with Rmd and PDF
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-1-1.pdf,7413,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-1-1.png,4806,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-1-1.svg,13712,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-10-1.svg,185302,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-2-1.svg,145032,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-3-1.svg,23386,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-4-1.svg,35913,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-5-1.svg,145032,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-6-1.svg,183646,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-7-1.svg,196174,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-8-1.svg,171373,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/slides_numerical_skills_part2_files/figure-html/unnamed-chunk-9-1.svg,185302,generated figure,no,Compared in lecture context; regenerated as new SVG
+numerical_skills/stretch.R,388,R scratch script,no,Read; implicit background_plot dependency removed; transformation regenerated with equal aspect
+numerical_skills/test_bgroup.R,956,R scratch script,no,Read; bracket/font experiment superseded by editable notation
+numerical_skills/xaringan-themer.css,7475,presentation infrastructure,yes,Read authored style/macros; superseded by Quarto and theme.scss

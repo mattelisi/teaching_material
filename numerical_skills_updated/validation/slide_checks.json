@@ -1,0 +1,439 @@
+{
+  "part1": {
+    "slides": 34,
+    "equations": 55,
+    "renderedEquations": 55,
+    "mathErrors": [],
+    "brokenImages": [],
+    "imageAlts": 0,
+    "notes": 33,
+    "layouts": [
+      {
+        "title": "Numerical skills for neuroscience",
+        "overflow": [],
+        "slideHeight": 420.83544921875,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Three questions to carry into a paper",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A function maps an input to an output",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Read the symbols before doing the algebra",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Exponentials describe growth and decay",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A logarithm reverses an exponential",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Pause: read the curve",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A slope is a change divided by a change",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "On a curve, the slope depends on where you are",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A derivative tells us the local direction of change",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "From gaze position to gaze velocity",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Small measurement errors can become large derivative errors",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Pause: keep track of the units",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Sine and cosine turn angles into oscillations",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Four quantities set a simple rhythm",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Period and frequency are reciprocals",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A recording is a sequence of samples",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Sampling too slowly can disguise a rhythm",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "One signal can contain several rhythms",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Adding sinusoids can build more complex shapes",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "The Fourier transform changes the description",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Read the spectrum as a new set of axes",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "R: make the signal, then transform it",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "R: put the frequency labels and amplitudes on the FFT",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Filtering selects which components to retain",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "R: reconstruct after filtering",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Translate a methods sentence",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Three things you can now explain",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Deriving the derivative of x2x^2x2",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A small derivative reference",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Integration adds up change",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "An amplitude spectrum does not show timing",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Finite windows spread spectral energy",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Images also have frequencies",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      }
+    ]
+  },
+  "part2": {
+    "slides": 35,
+    "equations": 52,
+    "renderedEquations": 52,
+    "mathErrors": [],
+    "brokenImages": [],
+    "imageAlts": 0,
+    "notes": 34,
+    "layouts": [
+      {
+        "title": "Numerical skills for neuroscience",
+        "overflow": [],
+        "slideHeight": 420.83544921875,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "From many measurements to a simpler picture",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A data matrix has rows and columns",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A vector is a list and a point",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Add vectors; multiply them by a scalar",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A linear combination is a weighted sum",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Span: everywhere those combinations can reach",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A matrix packages the columns we want to combine",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A dot product multiplies, then adds",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Dot products also describe alignment",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Projection gives a coordinate along an axis",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Transpose swaps rows and columns",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Matrix multiplication: a row meets a column",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "The same product, one column at a time",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Check the dimensions before multiplying",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "In R, * and %*% do different jobs",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A matrix can transform a whole space",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Eigenvectors keep the same line of action",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "PCA asks: which direction keeps the most variation?",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Step 1: centre each variable",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Step 2: summarise how centred variables vary together",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Step 3: directions and amounts of variation",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "R: build the example and find the directions",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Step 4: scores are the new coordinates",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "How much variation does each component retain?",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Step 5: keep one score and reconstruct an approximation",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "R: project, measure retained variance, reconstruct",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Pause: which changes should affect PCA?",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "In a paper: a trajectory through population activity",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Read the mathematics in a paper",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Identity and inverse: leave unchanged, or undo",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A linear model is a matrix-vector product",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A network layer combines inputs using weights",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "Scaling changes the question PCA answers",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      },
+      {
+        "title": "A few eigenvector caveats",
+        "overflow": [],
+        "slideHeight": 761.4000244140625,
+        "availableHeight": 761.4000244140625
+      }
+    ]
+  },
+  "browser_events": []
+}

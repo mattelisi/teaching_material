@@ -1,0 +1,7 @@
+.quarto/
+*_files/
+*.knit.md
+*.utf8.md
+Rplots.pdf
+
+/.quarto/

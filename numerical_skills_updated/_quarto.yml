@@ -1,0 +1,45 @@
+project:
+  type: default
+  pre-render:
+    - Rscript --vanilla R/make_figures.R
+  render:
+    - part1.qmd
+    - part2.qmd
+
+author: Matteo Lisi
+lang: en-GB
+format:
+  revealjs:
+    theme: [simple, theme.scss]
+    width: 1280
+    height: 720
+    margin: 0.06
+    center: false
+    slide-number: c/t
+    transition: none
+    background-transition: none
+    controls: true
+    progress: true
+    navigation-mode: linear
+    hash: true
+    auto-stretch: false
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github
+    # KaTeX avoids the MathJax 2/3 API mismatch in Quarto 1.5's Reveal template.
+    html-math-method: katex
+    pdf-separate-fragments: false
+    embed-resources: true
+    footer: "PS5210 · Numerical skills for neuroscience"
+execute:
+  echo: false
+  warning: true
+  message: false
+  error: false
+  cache: false
+knitr:
+  opts_chunk:
+    dev: svg
+    fig.width: 10
+    fig.height: 4.4
+    fig.align: center
