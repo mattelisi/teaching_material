@@ -8,7 +8,7 @@ subtitle: "Part 2 · Vectors, matrices and PCA"
 source("R/pca_example.R", local = TRUE)
 ```
 
-## From many measurements to a simpler picture
+## Linear algebra
 
 | Tool | What it lets us do |
 |:---|:---|
@@ -17,12 +17,12 @@ source("R/pca_example.R", local = TRUE)
 | **Projection** | Describe an observation along a chosen direction |
 | **PCA** | Find directions that capture the most variation |
 
-::: {.takeaway}
-Keep asking: what do the **rows**, **columns** and **axes** represent?
-:::
+<!-- ::: {.takeaway} -->
+<!-- Keep asking: what do the **rows**, **columns** and **axes** represent? -->
+<!-- ::: -->
 
 ::: {.notes}
-Allow 1 minute. Start with data rather than a list of unfamiliar vocabulary. A sampled signal from Part 1 is already a vector. Today's destination is understanding a PCA plot in a neuroscience paper, not calculating a large eigendecomposition by hand. We need only a geometric, descriptive introduction to covariance; probability theory remains outside this lecture. The core ends at “Read the mathematics in a paper”.
+Start with data rather than a list of unfamiliar vocabulary. A sampled signal from Part 1 is already a vector. Today's destination is understanding a PCA plot in a neuroscience paper, not calculating a large eigendecomposition by hand. We need only a geometric, descriptive introduction to covariance; probability theory remains outside this lecture. The core ends at “Read the mathematics in a paper”.
 :::
 
 ## A data matrix has rows and columns
@@ -33,7 +33,7 @@ $$\mathbf X\in\mathbb R^{n\times p}
 \qquad n\text{ observations},\ p\text{ variables}$$
 
 ::: {.notes}
-Allow 2 minutes. The figure has 4 rows and 3 columns; ask students to locate trial 2, neuron 3. Here the answer is 4. These are invented responses in common arbitrary units. Other papers may use columns for observations: check, do not assume. Our PCA script consistently uses observations in rows, variables in columns. A matrix is a rectangular array; only some matrices are square.
+The figure has 4 rows and 3 columns; ask students to locate trial 2, neuron 3. Here the answer is 4. These are invented responses in common arbitrary units. Other papers may use columns for observations: check, do not assume. Our PCA script consistently uses observations in rows, variables in columns. A matrix is a rectangular array; only some matrices are square.
 :::
 
 ## A vector is a list and a point
@@ -98,7 +98,7 @@ A **basis** is an independent set that spans the space being described.
 :::
 
 ::: {.notes}
-Allow 3 minutes. Left: v=(1,1), w=(2,3), so these two vectors span the whole plane. Right: w=(3,3)=3v, so the span is only a line. Dots show a finite sample of combinations; the mathematical span permits every real coefficient. “Independent” means no vector in the set can be made from the others. Two independent vectors are a basis for this plane. Independence here is algebraic, not statistical independence. A redundant column need not be identical: it can be any linear combination of the others.
+Left: v=(1,1), w=(2,3), so these two vectors span the whole plane. Right: w=(3,3)=3v, so the span is only a line. Dots show a finite sample of combinations; the mathematical span permits every real coefficient. “Independent” means no vector in the set can be made from the others. Two independent vectors are a basis for this plane. Independence here is algebraic, not statistical independence. A redundant column need not be identical: it can be any linear combination of the others.
 :::
 
 ## A matrix packages the columns we want to combine
@@ -148,7 +148,7 @@ In 2D: $\|\mathbf a\|=\sqrt{a_1^2+a_2^2}$. The angle requires **nonzero** vector
 :::
 
 ::: {.notes}
-Allow 2 minutes. Norm is sqrt(sum(a^2)). Both length and angle affect the dot product, so it is not an angular distance. To obtain cosine similarity, divide by both lengths; to obtain an angle, apply inverse cosine. Zero dot product means orthogonal; a zero vector is also orthogonal in the algebraic sense, but has no defined direction or angle. Geometric orthogonality does not in general imply statistical independence.
+Norm is sqrt(sum(a^2)). Both length and angle affect the dot product, so it is not an angular distance. To obtain cosine similarity, divide by both lengths; to obtain an angle, apply inverse cosine. Zero dot product means orthogonal; a zero vector is also orthogonal in the algebraic sense, but has no defined direction or angle. Geometric orthogonality does not in general imply statistical independence.
 :::
 
 ## Projection gives a coordinate along an axis
@@ -171,7 +171,7 @@ One number locates the point along this line.
 ::::
 
 ::: {.notes}
-Allow 3 minutes. Unit means length 1. In this drawing x=(1,3) and u=(1,1)/sqrt(2); the scalar coordinate is 2sqrt(2), and the projected vector is (2,2). The dashed segment is perpendicular to the chosen axis. Distinguish scalar score z from the two-coordinate projected point zu. This distinction is central to PCA and helps explain what reducing dimensionality means.
+Unit means length 1. In this drawing x=(1,3) and u=(1,1)/sqrt(2); the scalar coordinate is 2sqrt(2), and the projected vector is (2,2). The dashed segment is perpendicular to the chosen axis. Distinguish scalar score z from the two-coordinate projected point zu. This distinction is central to PCA and helps explain what reducing dimensionality means.
 :::
 
 ## Transpose swaps rows and columns
@@ -197,7 +197,7 @@ Allow 1 minute. Follow one entry through the operation: row 1, column 3 becomes 
 ![](figures/matrix_product.svg){height=400 fig-alt="Matrices A and B multiply to entries 5,6 in the first row and 1,0 in the second. The highlighted first row and second column give entry 6."}
 
 ::: {.notes}
-Allow 2 minutes. This recreates the original hand-drawn example with editable R graphics. A has rows (1,1) and (2,-1); B has columns (2,3) and (2,4). Highlighted entry: 1*2 + 1*4 = 6. Ask students to check the lower-left result: 2*2 + (-1)*3 = 1. Every output entry is a dot product, so this generalises to rectangular matrices.
+This recreates the original hand-drawn example with editable R graphics. A has rows (1,1) and (2,-1); B has columns (2,3) and (2,4). Highlighted entry: 1*2 + 1*4 = 6. Ask students to check the lower-left result: 2*2 + (-1)*3 = 1. Every output entry is a dot product, so this generalises to rectangular matrices.
 :::
 
 ## The same product, one column at a time
@@ -235,7 +235,7 @@ Can we reverse the order?
 :::
 
 ::: {.notes}
-Allow 2 minutes. The inner dimensions must agree; the outer dimensions give the output. Even when both AB and BA are defined, they need not be equal. When the products are defined, multiplication is associative: (AB)C=A(BC). In data terms, 100 observations of 3 variables can be combined into 2 new variables by a 3-by-2 weight matrix.
+The inner dimensions must agree; the outer dimensions give the output. Even when both AB and BA are defined, they need not be equal. When the products are defined, multiplication is associative: (AB)C=A(BC). In data terms, 100 observations of 3 variables can be combined into 2 new variables by a 3-by-2 weight matrix.
 :::
 
 ## In R, `*` and `%*%` do different jobs
@@ -264,7 +264,7 @@ Rows meet columns; products are added.
 ::::
 
 ::: {.notes}
-Allow 2 minutes. This is the key syntax change from MATLAB: MATLAB * corresponds to R %*%, and MATLAB .* corresponds to R *. For A*B the lower-right value is -4; for A%*%B it is zero. byrow=TRUE makes the literal input match our written rows; otherwise R fills a matrix column first. Elementwise multiplication is also called the Hadamard product and needs compatible shapes. Do not add several R shortcuts at once.
+This is the key syntax change from MATLAB: MATLAB * corresponds to R %*%, and MATLAB .* corresponds to R *. For A*B the lower-right value is -4; for A%*%B it is zero. byrow=TRUE makes the literal input match our written rows; otherwise R fills a matrix column first. Elementwise multiplication is also called the Hadamard product and needs compatible shapes. Do not add several R shortcuts at once.
 :::
 
 ## A matrix can transform a whole space
@@ -276,7 +276,7 @@ $$\mathbf S=\begin{bmatrix}2&0\\0&1\end{bmatrix}
 ![](figures/transformation.svg){height=375 fig-alt="A circle and square grid become an ellipse and horizontally stretched grid under a matrix that doubles the first coordinate."}
 
 ::: {.notes}
-Allow 2 minutes. The transformation doubles the first coordinate and leaves the second unchanged. Equal axis scales are essential: otherwise an undistorted circle might look stretched. Linear transformations preserve addition and scalar multiplication and map the origin to the origin. Translations need an added offset and are affine, not purely linear. Matrix columns tell us where the original coordinate basis vectors go.
+The transformation doubles the first coordinate and leaves the second unchanged. Equal axis scales are essential: otherwise an undistorted circle might look stretched. Linear transformations preserve addition and scalar multiplication and map the origin to the origin. Translations need an added offset and are affine, not purely linear. Matrix columns tell us where the original coordinate basis vectors go.
 :::
 
 ## Eigenvectors keep the same line of action
@@ -290,10 +290,10 @@ Teal: input. Orange: transformed vector. $\lambda$ is the eigenvalue.
 :::
 
 ::: {.notes}
-Allow 3 minutes. For S=diag(2,1), the coordinate axes are eigenvector directions with eigenvalues 2 and 1. The diagonal vector (1,1) maps to (2,1), not a scalar multiple of itself. For general real eigenvalues, negative values reverse direction and zero maps the eigenvector to zero; “same direction” without qualification is incomplete. The zero vector is excluded by definition. Real matrices do not always have real eigenvectors, but real symmetric covariance matrices do; the deeper caveat is in the extensions.
+For S=diag(2,1), the coordinate axes are eigenvector directions with eigenvalues 2 and 1. The diagonal vector (1,1) maps to (2,1), not a scalar multiple of itself. For general real eigenvalues, negative values reverse direction and zero maps the eigenvector to zero; “same direction” without qualification is incomplete. The zero vector is excluded by definition. Real matrices do not always have real eigenvectors, but real symmetric covariance matrices do; the deeper caveat is in the extensions.
 :::
 
-## PCA asks: which direction keeps the most variation?
+## PCA: which direction keeps the most variation?
 
 :::: {.columns}
 ::: {.column width="58%"}
@@ -304,14 +304,12 @@ Allow 3 minutes. For S=diag(2,1), the coordinate axes are eigenvector directions
 
 **PC2:** largest remaining variance, perpendicular to PC1.
 
-::: {.small}
-Synthetic data · two related measurements
-:::
+
 :::
 ::::
 
 ::: {.notes}
-Allow 2 minutes. PCA is principal component analysis. We compare unit directions, otherwise making an arrow longer would trivially increase projected variance. In 2D, once PC1 is chosen the perpendicular axis is PC2. In higher dimensions we continue choosing orthogonal directions. No outcome labels are used. Arrows in this figure have length 2 sqrt(lambda), i.e. two score standard deviations; they are not unit loadings drawn to scale or confidence intervals.
+PCA is principal component analysis. We compare unit directions, otherwise making an arrow longer would trivially increase projected variance. In 2D, once PC1 is chosen the perpendicular axis is PC2. In higher dimensions we continue choosing orthogonal directions. No outcome labels are used. Arrows in this figure have length 2 sqrt(lambda), i.e. two score standard deviations; they are not unit loadings drawn to scale or confidence intervals.
 :::
 
 ## Step 1: centre each variable
@@ -321,7 +319,7 @@ Allow 2 minutes. PCA is principal component analysis. We compare unit directions
 $$X_{c,ij}=X_{ij}-\overline X_j$$
 
 ::: {.notes}
-Allow 2 minutes. A subscript ij means observation i, variable j. Each column gets its own mean subtracted; we are not subtracting a row mean or one grand mean. Centring moves the cloud to the origin without changing its shape. The MATLAB example generated zero-mean populations but did not centre the finite sample, whose mean is not exactly zero. The new example deliberately adds offsets so learners can see why this step matters. Centring is different from scaling.
+A subscript ij means observation i, variable j. Each column gets its own mean subtracted; we are not subtracting a row mean or one grand mean. Centring moves the cloud to the origin without changing its shape. The MATLAB example generated zero-mean populations but did not centre the finite sample, whose mean is not exactly zero. The new example deliberately adds offsets so learners can see why this step matters. Centring is different from scaling.
 :::
 
 ## Step 2: summarise how centred variables vary together
@@ -345,7 +343,7 @@ Diagonal: spread.<br>Off diagonal: variation together.
 ::::
 
 ::: {.notes}
-Allow 3 minutes. This is the minimum descriptive covariance bridge required for PCA, not a probability lesson. Same-sign centred values have positive products; opposite signs have negative products. Sum those products and divide by n-1 for sample covariance. For a diagonal entry we multiply a variable by itself, giving its variance. Covariance is symmetric, and here S is p by p = 2 by 2. The denominator changes eigenvalue scale relative to 1/n but not directions or variance fractions. cov(X) handles the centring internally.
+This is the minimum descriptive covariance bridge required for PCA, not a probability lesson. Same-sign centred values have positive products; opposite signs have negative products. Sum those products and divide by n-1 for sample covariance. For a diagonal entry we multiply a variable by itself, giving its variance. Covariance is symmetric, and here S is p by p = 2 by 2. The denominator changes eigenvalue scale relative to 1/n but not directions or variance fractions. cov(X) handles the centring internally.
 :::
 
 ## Step 3: directions and amounts of variation
@@ -358,12 +356,12 @@ $$\mathbf S\mathbf v_j=\lambda_j\mathbf v_j$$
 | Eigenvalue $\lambda_j$ | Variance of scores along that direction |
 | Largest eigenvalue | The first principal component direction |
 
-::: {.takeaway}
-Directions are weights. They are not the observations' coordinates.
-:::
+<!-- ::: {.takeaway} -->
+<!-- Directions are weights. They are not the observations' coordinates. -->
+<!-- ::: -->
 
 ::: {.notes}
-Allow 2 minutes. For a real symmetric covariance matrix, eigenvectors can be chosen orthonormal and eigenvalues are nonnegative up to numerical precision. Tied eigenvalues mean a unique direction is not determined within the tied subspace. Some papers use “loadings” for eigenvectors scaled by sqrt(lambda); here loadings means unit eigenvectors, as in R prcomp rotation. Explain this terminology distinction so readers check each paper's methods.
+For a real symmetric covariance matrix, eigenvectors can be chosen orthonormal and eigenvalues are nonnegative up to numerical precision. Tied eigenvalues mean a unique direction is not determined within the tied subspace. Some papers use “loadings” for eigenvectors scaled by sqrt(lambda); here loadings means unit eigenvectors, as in R prcomp rotation. Explain this terminology distinction so readers check each paper's methods.
 :::
 
 ## R: build the example and find the directions
@@ -371,24 +369,33 @@ Allow 2 minutes. For a real symmetric covariance matrix, eigenvectors can be cho
 ```{r}
 #| echo: true
 #| eval: false
-set.seed(2)
+# simulate correlated data
 n <- 250
 x1 <- rnorm(n)
 x2 <- x1 + rnorm(n)
 X <- cbind(x1 + 5, x2 + 10)
+
+# center the variables
 Xc <- X
-for (j in 1:ncol(X)) Xc[, j] <- X[, j] - mean(X[, j])
+for (j in 1:ncol(X)){
+  Xc[, j] <- X[, j] - mean(X[, j])
+} 
+
+# compute variance-covariance matrix
 S <- t(Xc) %*% Xc / (n - 1)
+
+# computes eigenvalues and eigenvector
 decomposition <- eigen(S, symmetric = TRUE)
-V <- decomposition$vectors
+V <- decomposition$vectors  
+lambda <- decomposition$values
 ```
 
 ::: {.small}
-Complete, commented example: [R/pca_example.R](R/pca_example.R)
+Complete, commented example: [pca_example.R](R/pca_example.R)
 :::
 
 ::: {.notes}
-Allow 3 minutes as an instructor demonstration. This follows the same data-generating relation as the original MATLAB example, x2=x1+noise, with added offsets. Only functions included with R are used. Read each line as one of the three preceding steps. eigen with symmetric=TRUE returns unit vectors as columns and eigenvalues in decreasing order. It is the one numerical solver in an otherwise explicit calculation. We do not ask students to code an eigensolver. The script chooses stable signs for figures; PCA signs do not have intrinsic meaning.
+This follows the same data-generating relation as the original MATLAB example, x2=x1+noise, with added offsets. Only functions included with R are used. Read each line as one of the three preceding steps. eigen with symmetric=TRUE returns unit vectors as columns and eigenvalues in decreasing order. It is the one numerical solver in an otherwise explicit calculation. We do not ask students to code an eigensolver. The script chooses stable signs for figures; PCA signs do not have intrinsic meaning.
 :::
 
 ## Step 4: scores are the new coordinates
@@ -400,7 +407,7 @@ $$\underbrace{\mathbf Z}_{n\times p}
 ![](figures/pca_scores.svg){height=365 fig-alt="The same observations in original and principal component coordinates. A highlighted observation appears in both; the point cloud is now aligned with the axes."}
 
 ::: {.notes}
-Allow 2 minutes. Each score is a dot product of an observation and a loading vector. The orange dot tracks the same observation across the panels. Keeping all PCs changes coordinates without discarding information; reducing dimensionality happens when we retain fewer PCs. PCA scores have zero mean after centring, and distinct score columns have zero sample covariance. Zero covariance is not general statistical independence.
+Each score is a dot product of an observation and a loading vector. The orange dot tracks the same observation across the panels. Keeping all PCs changes coordinates without discarding information; reducing dimensionality happens when we retain fewer PCs. PCA scores have zero mean after centring, and distinct score columns have zero sample covariance. Zero covariance is not general statistical independence.
 :::
 
 ## How much variation does each component retain?
@@ -414,14 +421,12 @@ $$\text{fraction for PC }j=\frac{\lambda_j}{\sum_k\lambda_k}$$
 
 PC1 retains **`r round(100 * variance_fraction[1], 1)`%** here.
 
-::: {.small}
-High variance does not establish biological importance.
-:::
+
 :::
 ::::
 
 ::: {.notes}
-Allow 2 minutes. The percentage is computed from the actual simulated sample, not hard-coded. Variance has squared measurement units; dividing by the total makes a dimensionless fraction. Low variance might contain useful biological information and high variance might be an artefact. The number of components should follow the scientific goal rather than an unexplained universal percentage threshold.
+The percentage is computed from the actual simulated sample, not hard-coded. Variance has squared measurement units; dividing by the total makes a dimensionless fraction. Low variance might contain useful biological information and high variance might be an artefact. The number of components should follow the scientific goal rather than an unexplained universal percentage threshold.
 :::
 
 ## Step 5: keep one score and reconstruct an approximation
@@ -440,7 +445,7 @@ Add the means back to recover the original units and location.
 ::::
 
 ::: {.notes}
-Allow 2 minutes. The reconstruction is the perpendicular projection already introduced. Keeping the leading k PCs minimises total squared reconstruction error among k-dimensional linear subspaces of the centred data. This does not necessarily minimise an error relevant to the scientific question. The figure remains centred to show the geometry; the script also restores each column mean. Retaining all components reconstructs X up to floating-point error.
+The reconstruction is the perpendicular projection already introduced. Keeping the leading k PCs minimises total squared reconstruction error among k-dimensional linear subspaces of the centred data. This does not necessarily minimise an error relevant to the scientific question. The figure remains centred to show the geometry; the script also restores each column mean. Retaining all components reconstructs X up to floating-point error.
 :::
 
 ## R: project, measure retained variance, reconstruct
@@ -448,11 +453,19 @@ Allow 2 minutes. The reconstruction is the perpendicular projection already intr
 ```{r}
 #| echo: true
 #| eval: false
+
+# compute scores (coordinates along PC axes)
 scores <- Xc %*% V
+
+# variance explained by each PC
 lambda <- decomposition$values
 variance_fraction <- lambda / sum(lambda)
+
+# select first PC scores
 z1 <- scores[, 1, drop = FALSE]
-v1 <- V[, 1, drop = FALSE]
+v1 <- V[, 1, drop = FALSE] # 1st eigenvector
+
+# keep 1PC and do approximate reconstruction
 Xc_approx <- z1 %*% t(v1)
 X_approx <- Xc_approx
 for (j in 1:ncol(X)) {
@@ -464,7 +477,7 @@ for (j in 1:ncol(X)) {
 Allow 2 minutes. z1 is 250 by 1, v1 is 2 by 1, and the reconstruction is 250 by 2. drop=FALSE preserves matrix dimensions when taking a single column; it is helpful housekeeping, not a new mathematical operation. Point to how this code implements the preceding equations directly. The fully commented script contains exercises about changing offsets, scales, signs and correlation. prcomp is used only as an independent validation reference outside the teaching example.
 :::
 
-## Pause: which changes should affect PCA?
+## Which changes should affect PCA?
 
 ::: {.prompt}
 **A.** Add 100 to every value in one column.
@@ -483,7 +496,7 @@ Allow 2 minutes. z1 is 250 by 1, v1 is 2 by 1, and the reconstruction is 250 by 
 Allow 2 minutes. Give time to discuss before revealing. Adding an offset does not change centred data. Changing a variable's scale changes its influence, which is why units and standardisation must be reported. A sign flip is arbitrary, not a biological reversal: (-z)(-v)=zv. For new data, retain the means, scales and loadings estimated from the training data rather than refitting them. That last point is optional, not a required machine-learning topic.
 :::
 
-## In a paper: a trajectory through population activity
+## PCA in a paper: a trajectory through neural population activity
 
 :::: {.columns}
 ::: {.column width="61%"}
@@ -501,14 +514,28 @@ The line links successive states.
 ::::
 
 ::: {.credit}
-Thura, Cabana, Feghaly & Cisek (2022), *PLOS Biology*, Figure 4A. [doi:10.1371/journal.pbio.3001861](https://doi.org/10.1371/journal.pbio.3001861). CC BY; existing panel crop from the original teaching assets.
+Thura, Cabana, Feghaly & Cisek (2022), *PLOS Biology*, Figure 4A. [doi:10.1371/journal.pbio.3001861](https://doi.org/10.1371/journal.pbio.3001861).
 :::
 
 ::: {.notes}
 Allow 2 minutes. Figure 4A shows projections onto PCs 1, 2 and 4; do not relabel the vertical axis as PC3 or imply the first three PCs are always plotted. The authors compare population trajectories for different trial types and blocks. These axes describe activity, not anatomical locations. The teaching script illustrates the geometry only and does not reproduce this study's preprocessing or analysis. Ask students to identify what an axis and a trajectory point mean before interpreting the experimental colours or manifolds. Avoid claiming that a visually separated trajectory alone proves a causal mechanism.
 :::
 
-## Read the mathematics in a paper {#part2-recap}
+
+## Part 2 summary {#part2-recap}
+
+**Vectors** represent points/directions in space; **matrices** can be seen as functions that transform them.
+
+**Linear combinations** of vectors can create new vectors from old ones; **span** is the space of possible combinations; **linear (in)dependence** tells us when vector carry redundant information.
+
+**Matrix–vector multiplication** is a linear combination of the matrix columns; **dot products** connect algebra and geometry (gives angular distances between vector orientations); and **matrix multiplication** can be seens as "combination of combinations" of columns or a sequence of dot products.
+
+**Eigenvectors** are vectors which are fixed in direction under a given linear transformation (a matrix); the scaling factor of these eigenvectors is then called the **eigenvalue**. (Roughly the eigenvalue is a measure of the distortion induced by the transformation and the eigenvectors tell you about how the distortion is oriented.)
+
+**PCA** uses eigen-decomposition to find directions of maximal variance for constructing a simpler, interpretable representations.
+
+
+## Read the mathematics in a paper 
 
 | See this… | Read it as… |
 |:---|:---|
@@ -518,12 +545,14 @@ Allow 2 minutes. Figure 4A shows projections onto PCs 1, 2 and 4; do not relabel
 | $\mathbf Z=\mathbf X_c\mathbf V$ | Centred observations in new coordinates |
 
 ::: {.prompt}
-Exit check: how do **loadings**, **scores** and **eigenvalues** differ?
+Quiz: how do **loadings**, **scores** and **eigenvalues** differ?
 :::
 
 ::: {.notes}
 Allow 1 minute. Loadings are direction weights, scores are observations' coordinates along those directions, and covariance eigenvalues give score variances. Ask for the answer in words, then connect to the equation. This is the end of the core lecture. Optional material follows to retain useful content from the originals without making the basic route longer.
 :::
+
+
 
 ## Identity and inverse: leave unchanged, or undo {.optional}
 
@@ -577,7 +606,7 @@ Weights → sums → activation.
 ::::
 
 ::: {.notes}
-Optional, 2 minutes. Here we use column vectors consistently: W is 2 by 3, with each row collecting the weights feeding one output. The original used row vectors and the transposed weight convention; both work if dimensions agree. The matrix product is the weighted-sum step, not the whole network. Bias adds an offset and g is an activation function applied to each component. A non-linear activation makes the complete layer non-linear. This is a schematic mathematical model, not a detailed model of biological neurons.
+Optional. Here we use column vectors consistently: W is 2 by 3, with each row collecting the weights feeding one output. The original used row vectors and the transposed weight convention; both work if dimensions agree. The matrix product is the weighted-sum step, not the whole network. Bias adds an offset and g is an activation function applied to each component. A non-linear activation makes the complete layer non-linear. This is a schematic mathematical model, not a detailed model of biological neurons.
 :::
 
 ## Scaling changes the question PCA answers {.optional}
@@ -589,23 +618,23 @@ Centring removes offsets. **Standardising** also divides by each variable's SD.
 :::
 
 ::: {.notes}
-Optional, 3 minutes. The three panels show original units, a rescaled first variable, and then standardised variables. With mixed units, the choice needs justification; neither covariance PCA nor correlation PCA is universally right. Standardisation gives each non-constant variable unit variance, which can elevate noisy variables too. The script uses common units and keeps original relative variances. In R, scale(X, center=TRUE, scale=TRUE) standardises; do not apply it blindly to constant columns.
+Optional. The three panels show original units, a rescaled first variable, and then standardised variables. With mixed units, the choice needs justification; neither covariance PCA nor correlation PCA is universally right. Standardisation gives each non-constant variable unit variance, which can elevate noisy variables too. The script uses common units and keeps original relative variances. In R, scale(X, center=TRUE, scale=TRUE) standardises; do not apply it blindly to constant columns.
 :::
 
-## A few eigenvector caveats {.optional}
+<!-- ## A few eigenvector caveats {.optional} -->
 
-| Case | Meaning |
-|:---|:---|
-| $\lambda<0$ | Direction reverses |
-| $\lambda=0$ | The vector maps to zero |
-| $\mathbf v$ and $-\mathbf v$ | The same axis |
-| Repeated eigenvalues | Directions inside that subspace need not be unique |
+<!-- | Case | Meaning | -->
+<!-- |:---|:---| -->
+<!-- | $\lambda<0$ | Direction reverses | -->
+<!-- | $\lambda=0$ | The vector maps to zero | -->
+<!-- | $\mathbf v$ and $-\mathbf v$ | The same axis | -->
+<!-- | Repeated eigenvalues | Directions inside that subspace need not be unique | -->
 
-::: {.small}
-Real symmetric covariance matrices have an orthonormal eigenbasis.<br>
-Other real matrices need not have real eigenvectors.
-:::
+<!-- ::: {.small} -->
+<!-- Real symmetric covariance matrices have an orthonormal eigenbasis.<br> -->
+<!-- Other real matrices need not have real eigenvectors. -->
+<!-- ::: -->
 
-::: {.notes}
-Optional, 2 minutes. A 90-degree rotation in a real two-dimensional plane has no nonzero real eigenvector. Covariance is the friendly special case needed for PCA. Numerical rounding can produce negligible negative values for a theoretically positive-semidefinite covariance matrix; substantial negative values indicate a different problem. Eigenvectors are not guaranteed to be distinct neural mechanisms, and their signs are conventional.
-:::
+<!-- ::: {.notes} -->
+<!-- Optional. A 90-degree rotation in a real two-dimensional plane has no nonzero real eigenvector. Covariance is the friendly special case needed for PCA. Numerical rounding can produce negligible negative values for a theoretically positive-semidefinite covariance matrix; substantial negative values indicate a different problem. Eigenvectors are not guaranteed to be distinct neural mechanisms, and their signs are conventional. -->
+<!-- ::: -->

@@ -1,6 +1,6 @@
-title: Teachin materials
+title: Teaching materials
 description: Miscellaneous collection of teaching materials created by Matteo Lisi
-remote_theme: pages-themes/hacker@v0.2.0
+remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 

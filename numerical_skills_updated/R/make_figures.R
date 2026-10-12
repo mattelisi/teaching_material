@@ -190,7 +190,24 @@ figure("rhythms", function() {
          main = c("Slow rhythm: period 28 days", "Daily rhythm: period 1 day", "Their sum + noise")[j])
     axis(2, at = if (j == 1) c(-0.2, 0, 0.2) else if (j == 2) c(-0.3, 0, 0.3) else c(-0.5, 0, 0.5, 1))
   }
-}, height = 5.3)
+}, height = 7.5)
+
+
+figure("cycle_noisy", function() {
+  par( mar = c(3.6, 4.3, 1.6, 0.6))
+  t <- fourier$time_days
+  values <- list(fourier$temperature - fourier$baseline)
+  for (j in 1) {
+    plot(t, values[[j]], type = "l", col = c(purple, orange, teal)[j],
+         xlab = "Time (days)", 
+         ylab = "Change (C)", lwd = 1.5,
+         yaxt = "n",
+         main = c("Slow rhythm: period 28 days", "Daily rhythm: period 1 day", "Their sum + noise")[j])
+    axis(2, at = c(-0.5, 0, 0.5, 1))
+  }
+}, height = 6)
+
+
 figure("spectrum", function() {
   par(mfrow = c(1, 2))
   for (j in 1:2) {
