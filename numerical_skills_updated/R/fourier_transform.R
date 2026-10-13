@@ -49,14 +49,12 @@ keep <- abs(signed_frequency) < cutoff         # periods LONGER than 24 days
 Y_filtered <- Y
 Y_filtered[!keep] <- 0
 # Treat BOTH positive and negative partners equally, so the result stays real.
-# The original slide's 'shorter than 2 days' would require a cutoff of 1/2,
-# not 1/24. Here we follow the supplied MATLAB code's cutoff, explicitly.
 
 # 6. Return to the time domain ---------------------------------------------
 filtered_complex <- fft(Y_filtered, inverse = TRUE) / N
 filtered_change <- Re(filtered_complex)
 filtered_temperature <- temperature_mean + filtered_change
-# Unlike MATLAB ifft(), R's inverse fft() needs an explicit division by N.
+# R's inverse fft() needs an explicit division by N (unlike MATLAB ifft()).
 # Re() discards tiny numerical imaginary parts, not a genuine complex signal.
 # filtered_change has zero mean; filtered_temperature restores the baseline.
 
