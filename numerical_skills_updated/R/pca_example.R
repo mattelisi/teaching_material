@@ -1,10 +1,8 @@
 # PCA STEP BY STEP: describe two measurements using a new pair of axes
-# Based on Matteo Lisi's MATLAB teaching example:
-# https://github.com/mattelisi/NeuroMethods/blob/master/examples/PCA/pca_example.m
 # This version explicitly centres the data and uses sample covariance (n - 1).
 # Base R only. No machine-learning packages and no prcomp() in the worked steps.
 # Source this file; call plot_pca_example() to plot.
-# Command line: Rscript --vanilla R/pca_example.R pca_example.pdf
+
 
 # 1. Simulate two related measurements -------------------------------------
 set.seed(2)

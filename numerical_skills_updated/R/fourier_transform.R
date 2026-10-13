@@ -1,9 +1,6 @@
 # FOURIER TRANSFORM: two rhythms hidden in one sampled signal
-# An R adaptation of numerical_skills/fourier_transform.m by Matteo Lisi.
-# Uses only base R and packages included with R. All data are simulated.
-# Read and run sections 1--6 in order. Then try the questions at the end.
+# Uses only base R and packages included with R.
 # Source this file to calculate the example; call plot_fourier_example() to plot.
-# Command line: Rscript --vanilla R/fourier_transform.R fourier_example.pdf
 
 # 1. Make an exactly hourly time grid --------------------------------------
 set.seed(10)
